@@ -6,21 +6,11 @@
 
   environment.systemPackages = with pkgs; [
     # Desktop apps
-    audacity
-    chromium
-    telegram-desktop
-    alacritty
-    obs-studio
-    rofi
     wofi
     mpv
-    kdenlive
-    discord
     gparted
-    obsidian
-    zoom-us
     pcmanfm-qt
-    polymc
+    kitty
 
     # Coding stuff
     gnumake
@@ -30,16 +20,16 @@
     (python3.withPackages (ps: with ps; [ requests ]))
 
     # CLI utils
-    neofetch
+    vim
     file
     tree
     wget
     git
     fastfetch
+    btop    
     htop
     nix-index
     unzip
-    scrot
     ffmpeg
     light
     lux
@@ -51,7 +41,6 @@
     ntfs3g
     yt-dlp
     brightnessctl
-    swww
     openssl
     lazygit
     bluez
@@ -61,9 +50,8 @@
     feh
     imv
     dmenu
-    screenkey
-    mako
-    gromit-mpx
+    dunst    
+    firefox-devedition
 
     # Xorg stuff
     #xterm
@@ -74,14 +62,15 @@
     xwayland
     wl-clipboard
     cliphist
-
+    
     # WMs and stuff
-    herbstluftwm
     hyprland
     seatd
     xdg-desktop-portal-hyprland
-    polybar
     waybar
+    waybar-mpris
+    playerctl
+    zscroll
 
     # Sound
     pipewire
@@ -89,26 +78,31 @@
     pamixer
 
     # GPU stuff 
-    amdvlk
-    rocm-opencl-icd
-    glaxnimate
+    #amdvlk
+    #rocm-opencl-icd
+    #glaxnimate
 
     # Screenshotting
     grim
     grimblast
     slurp
-    flameshot
-    swappy
+
+    #sddm
+    libsForQt5.qtquickcontrols2 
+    libsForQt5.qtgraphicaleffects
+
+#aagl
 
     # Other
     home-manager
-    spice-vdagent
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qt5ct
     papirus-nord
   ];
 
   fonts.packages = with pkgs; [
+    liberation_ttf    
+    fira-code
     jetbrains-mono
     noto-fonts
     noto-fonts-emoji

@@ -1,16 +1,17 @@
-{
+{ pkgs, ... } :{ 
   imports = [
     ./bootloader.nix
-    ./sound.nix
+    ./sddm.nix
+    ./ssh.nix 
     ./zram.nix
     ./env.nix
     ./user.nix
-    ./xserver.nix
     ./nm.nix
-    ./virtmanager.nix
     ./hyprland.nix
     ./trim.nix
     ./bluetooth.nix
-    ./nixvim/nixvim.nix
+    ./steam.nix
+    ./flatpak.nix
+    ./font.nix
   ];
 }

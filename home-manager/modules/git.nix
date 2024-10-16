@@ -1,7 +1,8 @@
 {
   programs.git = {
     enable = true;
-    userName  = "Andrey0189";
-    userEmail = "varnavsky06@gmail.com";
-  };
+    userName  = "Flamindemigod";
+    userEmail = "23692454+Flamindemigod@users.noreply.github.com";
+	extraConfig.core = {editor = "vim"; autocrlf = "input";};  
+};
 }

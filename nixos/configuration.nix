@@ -1,23 +1,55 @@
-{ inputs, ...}: {
-  imports = [
+{ inputs, ...}: 
+{ 
+imports = [
     ./hardware-configuration.nix
     ./packages.nix
     ./modules/bundle.nix
   ];
 
   disabledModules = [
-    ./modules/xserver.nix
+    ./modules/bluetooth.nix
   ];
+environment.sessionVariables = rec {
+    XDG_CACHE_HOME  = "$HOME/.cache";
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_DATA_HOME   = "$HOME/.local/share";
+    XDG_STATE_HOME  = "$HOME/.local/state";
+  };
+  #nixpkgs.overlays = [ inputs.polymc.overlay ];
 
-  nixpkgs.overlays = [ inputs.polymc.overlay ];
+  networking.hostName = "weneg"; # Define your hostname.
 
-  networking.hostName = "nixos"; # Define your hostname.
+  time.timeZone = "Europe/London";
 
-  time.timeZone = "Asia/Tashkent"; # Set your time zone.
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_GB.UTF-8";
 
-  i18n.defaultLocale = "en_US.UTF-8"; # Select internationalisation properties.
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_GB.UTF-8";
+    LC_IDENTIFICATION = "en_GB.UTF-8";
+    LC_MEASUREMENT = "en_GB.UTF-8";
+    LC_MONETARY = "en_GB.UTF-8";
+    LC_NAME = "en_GB.UTF-8";
+    LC_NUMERIC = "en_GB.UTF-8";
+    LC_PAPER = "en_GB.UTF-8";
+    LC_TELEPHONE = "en_GB.UTF-8";
+    LC_TIME = "en_GB.UTF-8";
+  };
+
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "gb";
+    variant = "extd";
+  };
+
+  # Configure console keymap
+  console.keyMap = "uk";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ]; # Enabling flakes
-
+  nix.settings = {
+    substituters = [ "https://ezkea.cachix.org" ];
+    trusted-public-keys = [ "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
+  };
   system.stateVersion = "23.05"; # Don't change it bro
 }
+

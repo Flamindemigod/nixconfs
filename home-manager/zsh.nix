@@ -8,7 +8,7 @@
 
     shellAliases =
       let
-        flakeDir = "~/nix";
+        flakeDir = "~/nix-ref";
       in {
       rb = "sudo nixos-rebuild switch --flake ${flakeDir}";
       upd = "nix flake update ${flakeDir}";
@@ -19,7 +19,7 @@
       conf = "nvim ${flakeDir}/nixos/configuration.nix";
       pkgs = "nvim ${flakeDir}/nixos/packages.nix";
 
-      ll = "ls -l";
+      ll = "ls -lh";
       v = "nvim";
       se = "sudoedit";
       ff = "fastfetch";

@@ -6,7 +6,7 @@
     settings = {
       "$mainMod" = "SUPER";
 
-      monitor = ",1920x1080@90,auto,1";
+      monitor = ",prefered,auto,1";
 
       env = [
         "XDG_CURRENT_DESKTOP,Hyprland"
@@ -45,7 +45,7 @@
 
         layout = "dwindle";
 
-        no_cursor_warps = false;
+      	#no_cursor_warps = false;
       };
 
       decoration = {
@@ -86,7 +86,7 @@
       };
 
       master = {
-        new_is_master = true;
+        #new_is_master = true;
       };
 
       gestures = {
@@ -111,8 +111,6 @@
       ];
 
       exec-once = [
-        "swww init"
-        "swww img ~/Downloads/nixos-chan.png"
         "waybar"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
@@ -121,12 +119,12 @@
       bind = [
         "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
 
-        "$mainMod, Return, exec, alacritty"
-        "$mainMod, Q, killactive,"
+        "$mainMod, Q, exec, kitty"
+        "$mainMod, C, killactive,"
         "$mainMod, M, exit,"
         "$mainMod, E, exec, dolphin"
         "$mainMod, F, togglefloating,"
-        "$mainMod, D, exec, wofi --show drun"
+        "$mainMod, R, exec, wofi --show drun"
         "$mainMod, P, pseudo, # dwindle"
         "$mainMod, J, togglesplit, # dwindle"
 

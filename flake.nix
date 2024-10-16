@@ -4,29 +4,27 @@
   inputs = {
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+
+aagl = {
+    url = "github:ezKEa/aagl-gtk-on-nix";
+    inputs.nixpkgs.follows = "nixpkgs"; # Name of nixpkgs input you want to use
+};
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    polymc.url = "github:PolyMC/PolyMC";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, aagl,... }@inputs:
 
     let
       system = "x86_64-linux";
     in {
 
     # nixos - system hostname
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.weneg = nixpkgs.lib.nixosSystem {
       specialArgs = {
         pkgs-stable = import nixpkgs-stable {
           inherit system;
@@ -36,11 +34,17 @@
       };
       modules = [
         ./nixos/configuration.nix
-        inputs.nixvim.nixosModules.nixvim
+ {
+          imports = [ aagl.nixosModules.default ];
+          nix.settings = aagl.nixConfig; # Set up Cachix
+          programs.anime-game-launcher.enable = true; # Adds launcher and /etc/hosts rules
+          programs.honkers-railway-launcher.enable = true;
+          programs.honkers-launcher.enable = true;
+        }	
       ];
     };
 
-    homeConfigurations.amper = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.flamin = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
       modules = [ ./home-manager/home.nix ];
     };
