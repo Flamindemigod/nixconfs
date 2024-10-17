@@ -93,6 +93,8 @@ workspace=[
         drop_shadow = true;
         shadow_range = 4;
         shadow_render_power = 3;
+        active_opacity = 0.9;
+        inactive_opacity = 0.7;
         "col.shadow" = "$subtle";
       };
 
@@ -141,6 +143,7 @@ workspace=[
 
       exec-once = [
         "waybar"
+        "hyprpaper"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1"
