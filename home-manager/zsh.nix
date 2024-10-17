@@ -1,6 +1,9 @@
 { config, ... }: {
   programs.zsh = {
     enable = true;
+    sessionVariables = {
+	GTK_THEME = "adw-gtk3-dark";
+	};
     enableCompletion = true;
     # enableAutosuggestions = true;
     autosuggestion.enable = true;
