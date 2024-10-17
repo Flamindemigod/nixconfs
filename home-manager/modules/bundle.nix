@@ -4,6 +4,7 @@
     ./git.nix
     ./htop.nix
     ./qt.nix
+    ./gtk.nix
     ./mangohud.nix
 
     ./wms/hyprland.nix

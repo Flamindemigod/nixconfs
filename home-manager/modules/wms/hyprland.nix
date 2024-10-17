@@ -1,12 +1,48 @@
-{
+{pkgs, ...}:{
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
 
     settings = {
-      "$mainMod" = "SUPER";
+# name: Rosé Pine
+# author: jishnurajendran
+# upstream: https://github.com/jishnurajendran/hyprland-rosepine/blob/main/rose-pine.conf
+# All natural pine, faux fur and a bit of soho vibes for the classy minimalist
+"$base           "=" 0xff191724";
+"$surface        "=" 0xff1f1d2e";
+"$overlay        "=" 0xff26233a";
+"$muted          "=" 0xff6e6a86";
+"$subtle         "=" 0xff908caa";
+"$text           "=" 0xffe0def4";
+"$love           "=" 0xffeb6f92";
+"$gold           "=" 0xfff6c177";
+"$rose           "=" 0xffebbcba";
+"$pine           "=" 0xff31748f";
+"$foam           "=" 0xff9ccfd8";
+"$iris           "=" 0xffc4a7e7";
+"$highlightLow   "=" 0xff21202e";
+"$highlightMed   "=" 0xff403d52";
+"$highlightHigh  "=" 0xff524f67      ";
 
-      monitor = ",prefered,auto,1";
+"$mainMod" = "SUPER";
+
+      monitor = [
+
+"HDMI-A-1, highres,0x0,1" 
+"desc:Hewlett Packard LA1905 CNC019039F,highres, -900x-200, 1, transform,3"
+"desc:Hewlett Packard LA1905 CNC10108WV,highres,1920x0,1"
+];
+workspace=[
+"1,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
+"2,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
+"3,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
+"4,default:true,monitor:HDMI-A-1"
+"5,default:true,monitor:HDMI-A-1"
+"6,default:true,monitor:HDMI-A-1"
+"7,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
+"8,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
+"9,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
+];
 
       env = [
         "XDG_CURRENT_DESKTOP,Hyprland"
@@ -23,27 +59,22 @@
       };
 
       input = {
-        kb_layout = "us,ru";
-        kb_variant = "lang";
-        kb_options = "grp:caps_toggle";
-
+        kb_layout = "gb";
         follow_mouse = 1;
-
         touchpad = {
           natural_scroll = false;
         };
-
         sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
       };
 
       general = {
         gaps_in = 5;
         gaps_out = 20;
-        border_size = 3;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        border_size = 2;
+        "col.active_border" = "$rose $pine $love $iris 90deg";
+        "col.inactive_border" = "$muted";
 
-        layout = "dwindle";
+        #layout = "dwindle";
 
       	#no_cursor_warps = false;
       };
@@ -53,22 +84,22 @@
 
         blur = {
           enabled = true;
-          size = 16;
-          passes = 2;
+          size = 24;
+          passes = 3;
           new_optimizations = true;
         };
 
         drop_shadow = true;
         shadow_range = 4;
         shadow_render_power = 3;
-        "col.shadow" = "rgba(1a1a1aee)";
+        "col.shadow" = "$subtle";
       };
 
       animations = {
         enabled = true;
 
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-        # bezier = "myBezier, 0.33, 0.82, 0.9, -0.08";
+        #bezier = "myBezier, 0.33, 0.82, 0.9, -0.08";
 
         animation = [
           "windows,     1, 7,  myBezier"
@@ -86,20 +117,16 @@
       };
 
       master = {
-        #new_is_master = true;
+        new_status = "master";
       };
 
       gestures = {
-        workspace_swipe = true;
-        workspace_swipe_fingers = 3;
-        workspace_swipe_invert = false;
-        workspace_swipe_distance = 200;
-        workspace_swipe_forever = true;
+        workspace_swipe = false;
       };
 
       misc = {
-        animate_manual_resizes = true;
-        animate_mouse_windowdragging = true;
+        animate_manual_resizes = false;
+        animate_mouse_windowdragging = false;
         enable_swallow = true;
         render_ahead_of_time = false;
         disable_hyprland_logo = true;
@@ -108,25 +135,34 @@
       windowrule = [
         "float, ^(imv)$"
         "float, ^(mpv)$"
+	"float, class:^(wofi)$"
       ];
 
       exec-once = [
         "waybar"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
+        "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1"
       ];
 
       bind = [
-        "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+        "$mainMod SHIFT, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
 
         "$mainMod, Q, exec, kitty"
         "$mainMod, C, killactive,"
         "$mainMod, M, exit,"
         "$mainMod, E, exec, dolphin"
-        "$mainMod, F, togglefloating,"
+        "$mainMod, V, togglefloating,"
+        "$mainMod, F, fullscreen,"
         "$mainMod, R, exec, wofi --show drun"
         "$mainMod, P, pseudo, # dwindle"
         "$mainMod, J, togglesplit, # dwindle"
+        ''$mainMod SHIFT, C, exec, grim -g "$(slurp)" - | swappy -f -''
+        "$mainMod ALT  , C, exec, hyrprpicker -f hex -a -r"
+
+	#application keybinds
+	"$mainMod SHIFT, F, exec, firefox-devedition"
+	"$mainMod SHIFT, S, exec, steam"
 
         # Move focus with mainMod + arrow keys
         "$mainMod, left,  movefocus, l"
@@ -174,10 +210,6 @@
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
 
-        # Keyboard backlight
-        "$mainMod, F3, exec, brightnessctl -d *::kbd_backlight set +33%"
-        "$mainMod, F2, exec, brightnessctl -d *::kbd_backlight set 33%-"
-
         # Volume and Media Control
         ", XF86AudioRaiseVolume, exec, pamixer -i 5 "
         ", XF86AudioLowerVolume, exec, pamixer -d 5 "
@@ -189,11 +221,10 @@
         ", XF86MonBrightnessUp, exec, brightnessctl set +5% "
 
         # Configuration files
-        ''$mainMod SHIFT, N, exec, alacritty -e sh -c "rb"''
-        ''$mainMod SHIFT, C, exec, alacritty -e sh -c "conf"''
-        ''$mainMod SHIFT, H, exec, alacritty -e sh -c "nvim ~/nix/home-manager/modules/wms/hyprland.nix"''
-        ''$mainMod SHIFT, W, exec, alacritty -e sh -c "nvim ~/nix/home-manager/modules/wms/waybar.nix''
-        '', Print, exec, grim -g "$(slurp)" - | swappy -f -''
+        ''$mainMod SHIFT, N, exec, kitty -e sh -c "rb"''
+        ''$mainMod SHIFT, C, exec, kitty -e sh -c "conf"''
+        ''$mainMod SHIFT, H, exec, kitty -e sh -c "nvim ~/nix/home-manager/modules/wms/hyprland.nix"''
+        ''$mainMod SHIFT, W, exec, kitty -e sh -c "nvim ~/nix/home-manager/modules/wms/waybar.nix''
 
         # Waybar
         "$mainMod, B, exec, pkill -SIGUSR1 waybar"

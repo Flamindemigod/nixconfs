@@ -10,6 +10,7 @@
     ./hyprland.nix
     ./trim.nix
     ./bluetooth.nix
+    ./pipewire.nix
     ./steam.nix
     ./flatpak.nix
     ./font.nix

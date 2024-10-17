@@ -61,26 +61,39 @@
     # Wayland stuff
     xwayland
     wl-clipboard
-    cliphist
-    
+    (cliphist.overrideAttrs (_old: {
+    src = pkgs.fetchFromGitHub {
+      owner = "sentriz";
+      repo = "cliphist";
+      rev = "c49dcd26168f704324d90d23b9381f39c30572bd";
+      sha256 = "sha256-2mn55DeF8Yxq5jwQAjAcvZAwAg+pZ4BkEitP6S2N0HY=";
+    };
+    vendorHash = "sha256-M5n7/QWQ5POWE4hSCMa0+GOVhEDCOILYqkSYIGoy/l0=";
+  }))
     # WMs and stuff
     hyprland
+    hyprpaper
+    hyprpicker
+    hypridle
+    kdePackages.polkit-kde-agent-1
     seatd
     xdg-desktop-portal-hyprland
     waybar
     waybar-mpris
     playerctl
     zscroll
+    xdotool
 
     # Sound
     pipewire
     pulseaudio
     pamixer
-
-    # GPU stuff 
+    pavucontrol
+    
+# GPU stuff 
     #amdvlk
-    #rocm-opencl-icd
-    #glaxnimate
+    rocm-opencl-icd
+    glaxnimate
 
     # Screenshotting
     grim
@@ -91,13 +104,14 @@
     libsForQt5.qtquickcontrols2 
     libsForQt5.qtgraphicaleffects
 
-#aagl
-
+    vesktop
+    hyprpicker
+    keepassxc
     # Other
     home-manager
-    libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qt5ct
-    papirus-nord
+    nixfmt-rfc-style
+    gtk4
   ];
 
   fonts.packages = with pkgs; [
