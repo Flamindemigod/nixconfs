@@ -62,11 +62,18 @@ workspace=[
       input = {
         kb_layout = "gb";
         follow_mouse = 1;
+	numlock_by_default=true;
         touchpad = {
           natural_scroll = false;
         };
-        sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
-      };
+        sensitivity = 0; # -1.0 - 1.0, 0 means no modification.      
+};
+device = [{
+name = "numlock_by_default";
+transform = 0;
+output = "HDMI-A-1";
+sensitivity = 1;
+}];
 
       general = {
         gaps_in = 5;
@@ -161,8 +168,8 @@ workspace=[
         "$mainMod, R, exec, wofi --show drun"
         "$mainMod, P, pseudo, # dwindle"
         "$mainMod, J, togglesplit, # dwindle"
-        ''$mainMod SHIFT, C, exec, grim -g "$(slurp)" - | swappy -f -''
-        "$mainMod ALT  , C, exec, hyrprpicker -f hex -a -r"
+        "$mainMod SHIFT, C, exec, grimshot copy area"
+        "$mainMod ALT  , C, exec, hyprpicker -f hex -a -r"
 
 	#application keybinds
 	"$mainMod SHIFT, F, exec, firefox-devedition"
