@@ -92,6 +92,7 @@
     
 # GPU stuff 
     #amdvlk
+    rocmPackages.rocm-smi
     rocm-opencl-icd
     glaxnimate
 
