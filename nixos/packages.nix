@@ -11,6 +11,7 @@
     gparted
     pcmanfm-qt
     kitty
+    libresprite
 
     # Coding stuff
     gnumake
