@@ -20,13 +20,19 @@
 		};
 		style=
 	''
+*{
+all: unset;
+}
 window {
     margin: 0px;
-    border-radius: 0px;
+    border-radius: 15px;
     color: #e0def4;
     font-family: 'Fira Code Nerd Font';
     font-size: 16px;
+    background: transparent;
+    border: none;
 }
+
 
 #input {
   all: unset;
@@ -39,27 +45,25 @@ window {
   border-radius: 15px;
   margin: 10px;
   margin-bottom: 2px;
-    color: #eb6f92;
-    background-color: #26233a;
+  color: #eb6f92;
+  background-color: #1f1d2e;
     
 }
 
 #inner-box {
-
   margin: 4px;
   padding: 10px;
   font-weight: bold;
   border-radius: 15px;
-    background-color: #26233a;
-    color: #191724;
+  background-color: #26233a;
+  color: #191724;
 }
 
 #outer-box {
   margin: 0px;
   padding: 3px;
   border-radius: 15px;
-  border: 5px solid #26233a;
-    background-color: #191724;
+  background-color: #26233a;
 }
 
 #scroll {
@@ -83,6 +87,7 @@ window {
 }
 
 #entry {
+  padding: 2px;
   margin: 0px 0px;
   border: none;
   border-radius: 15px;

@@ -151,6 +151,7 @@ sensitivity = 1;
       exec-once = [
         "waybar"
         "hyprpaper"
+        "${pkgs.ckb-next}/bin/ckb-next -b"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1"
@@ -168,8 +169,8 @@ sensitivity = 1;
         "$mainMod, R, exec, wofi --show drun"
         "$mainMod, P, pseudo, # dwindle"
         "$mainMod, J, togglesplit, # dwindle"
-        "$mainMod SHIFT, C, exec, grimshot copy area"
-        "$mainMod ALT  , C, exec, hyprpicker -f hex -a -r"
+        "$mainMod SHIFT, C, exec, ${pkgs.grimblast}/bin/grimblast copy area"
+        "$mainMod ALT, C, exec, hyprpicker -f hex -a -r"
 
 	#application keybinds
 	"$mainMod SHIFT, F, exec, firefox-devedition"

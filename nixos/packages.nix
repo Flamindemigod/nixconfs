@@ -26,7 +26,7 @@
     wget
     git
     fastfetch
-    btop    
+(btop.override { rocmSupport = true; })    
     htop
     nix-index
     unzip
@@ -89,7 +89,10 @@
     pulseaudio
     pamixer
     pavucontrol
-    
+   
+    #input control
+    ckb-next
+ 
 # GPU stuff 
     #amdvlk
     rocmPackages.rocm-smi
