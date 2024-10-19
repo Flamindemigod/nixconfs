@@ -69,10 +69,11 @@ workspace=[
         sensitivity = 0; # -1.0 - 1.0, 0 means no modification.      
 };
 device = [{
-name = "numlock_by_default";
-transform = 0;
+name = "wacom-intuos-m-pen";
+relative_input = true;
+#transform = 0;
 output = "HDMI-A-1";
-sensitivity = 1;
+#sensitivity = 1;
 }];
 
       general = {
