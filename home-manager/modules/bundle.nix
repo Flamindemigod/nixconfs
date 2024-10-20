@@ -5,6 +5,7 @@
     ./htop.nix
     ./qt.nix
     ./gtk.nix
+    ./cava.nix
     ./mangohud.nix
     ./kitty.nix
     ./tmux.nix

@@ -7,7 +7,7 @@ keyMode = "vi";
 newSession=true;
 sensibleOnTop = true;
 shell = "${pkgs.zsh}/bin/zsh";
-terminal = "screen-256color";
+terminal = "st-256color";
 plugins = with pkgs; [
   {
   plugin = tmuxPlugins.rose-pine;
@@ -37,7 +37,7 @@ extraConfig = ''
     extraConfig = ''
 	set -g @resurrect-strategy-nvim 'session'
 	set -g @resurrect-save 'S'
-	set -g @resurrect-resore 'R'
+	set -g @resurrect-resore 'V'
 	'';
   }
   {
