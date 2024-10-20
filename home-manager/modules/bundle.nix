@@ -7,6 +7,7 @@
     ./gtk.nix
     ./mangohud.nix
     ./kitty.nix
+    ./tmux.nix
     ./ckb-next.nix
 
     ./wms/hyprland.nix

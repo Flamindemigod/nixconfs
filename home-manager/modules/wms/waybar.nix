@@ -268,7 +268,7 @@ window#waybar {
 
 #clock {
     background: @surface;
-    background: linear-gradient(118deg, @iris 5%, @surface 5%, @surface 20%, @iris 20%, @iris 40%, @surface 40%, @surface 60%, @iris 60%, @iris 80%, @surface 80%, @surface 95%, @iris 95%);
+    background: linear-gradient(120deg, @iris 0%, @iris 5%, @surface 5%, @surface 20%, @iris 20%, @iris 40%, @surface 40%, @surface 60%, @iris 60%, @iris 80%, @surface 80%, @surface 95%, @iris 95%, @iris 100%);
 
     background-size: 200% 300%;
 

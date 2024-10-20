@@ -20,6 +20,12 @@
     python
     (python3.withPackages (ps: with ps; [ requests ]))
 
+    tmux
+    tmuxPlugins.sensible
+tmuxPlugins.rose-pine
+tmuxPlugins.resurrect
+tmuxPlugins.continuum
+
     # CLI utils
     vim
     file
