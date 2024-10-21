@@ -1,3 +1,3 @@
 {
-hardware.ckb-next.enable = true;
+  hardware.ckb-next.enable = true;
 }

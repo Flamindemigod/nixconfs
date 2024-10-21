@@ -1,9 +1,10 @@
-{ pkgs, ... } :{ 
+{ pkgs, ... }:
+{
   imports = [
     ./bootloader.nix
     ./input.nix
     ./sddm.nix
-    ./ssh.nix 
+    ./ssh.nix
     ./zram.nix
     ./env.nix
     ./user.nix

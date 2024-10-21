@@ -1,15 +1,16 @@
-{ inputs, ...}: 
-{ 
-imports = [
+{ inputs, ... }:
+{
+  imports = [
     ./hardware-configuration.nix
     ./packages.nix
     ./modules/bundle.nix
   ];
 
-  disabledModules = [
-  ];
-security.polkit.enable = true;
-security.polkit.extraConfig = ''
+  disabledModules =
+    [
+    ];
+  security.polkit.enable = true;
+  security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
       if (
         subject.isInGroup("users")
@@ -25,11 +26,11 @@ security.polkit.extraConfig = ''
       }
     });
   '';
-environment.sessionVariables = rec {
-    XDG_CACHE_HOME  = "$HOME/.cache";
+  environment.sessionVariables = rec {
+    XDG_CACHE_HOME = "$HOME/.cache";
     XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_DATA_HOME   = "$HOME/.local/share";
-    XDG_STATE_HOME  = "$HOME/.local/state";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
   };
   #nixpkgs.overlays = [ inputs.polymc.overlay ];
 
@@ -61,11 +62,13 @@ environment.sessionVariables = rec {
   # Configure console keymap
   console.keyMap = "uk";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ]; # Enabling flakes
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ]; # Enabling flakes
   nix.settings = {
     substituters = [ "https://ezkea.cachix.org" ];
     trusted-public-keys = [ "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
   };
   system.stateVersion = "23.05"; # Don't change it bro
 }
-

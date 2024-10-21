@@ -1,10 +1,15 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = ["python-2.7.18.8" "electron-25.9.0"];
+    permittedInsecurePackages = [
+      "python-2.7.18.8"
+      "electron-25.9.0"
+    ];
   };
 
   environment.systemPackages = with pkgs; [
+    nixfmt-rfc-style
     # Desktop apps
     wofi
     mpv
@@ -22,9 +27,9 @@
 
     tmux
     tmuxPlugins.sensible
-tmuxPlugins.rose-pine
-tmuxPlugins.resurrect
-tmuxPlugins.continuum
+    tmuxPlugins.rose-pine
+    tmuxPlugins.resurrect
+    tmuxPlugins.continuum
 
     # CLI utils
     vim
@@ -33,7 +38,7 @@ tmuxPlugins.continuum
     wget
     git
     fastfetch
-(btop.override { rocmSupport = true; })    
+    (btop.override { rocmSupport = true; })
     htop
     nix-index
     unzip
@@ -57,7 +62,7 @@ tmuxPlugins.continuum
     feh
     imv
     dmenu
-    dunst    
+    dunst
     firefox-devedition
 
     # Xorg stuff
@@ -69,14 +74,14 @@ tmuxPlugins.continuum
     xwayland
     wl-clipboard
     (cliphist.overrideAttrs (_old: {
-    src = pkgs.fetchFromGitHub {
-      owner = "sentriz";
-      repo = "cliphist";
-      rev = "c49dcd26168f704324d90d23b9381f39c30572bd";
-      sha256 = "sha256-2mn55DeF8Yxq5jwQAjAcvZAwAg+pZ4BkEitP6S2N0HY=";
-    };
-    vendorHash = "sha256-M5n7/QWQ5POWE4hSCMa0+GOVhEDCOILYqkSYIGoy/l0=";
-  }))
+      src = pkgs.fetchFromGitHub {
+        owner = "sentriz";
+        repo = "cliphist";
+        rev = "c49dcd26168f704324d90d23b9381f39c30572bd";
+        sha256 = "sha256-2mn55DeF8Yxq5jwQAjAcvZAwAg+pZ4BkEitP6S2N0HY=";
+      };
+      vendorHash = "sha256-M5n7/QWQ5POWE4hSCMa0+GOVhEDCOILYqkSYIGoy/l0=";
+    }))
     # WMs and stuff
     hyprland
     hyprpaper
@@ -96,11 +101,11 @@ tmuxPlugins.continuum
     pulseaudio
     pamixer
     pavucontrol
-   
+
     #input control
     ckb-next
- 
-# GPU stuff 
+
+    # GPU stuff 
     #amdvlk
     rocmPackages.rocm-smi
     rocm-opencl-icd
@@ -112,7 +117,7 @@ tmuxPlugins.continuum
     slurp
 
     #sddm
-    libsForQt5.qtquickcontrols2 
+    libsForQt5.qtquickcontrols2
     libsForQt5.qtgraphicaleffects
 
     vesktop
@@ -126,7 +131,7 @@ tmuxPlugins.continuum
   ];
 
   fonts.packages = with pkgs; [
-    liberation_ttf    
+    liberation_ttf
     fira-code
     jetbrains-mono
     noto-fonts

@@ -1,6 +1,7 @@
 {
   imports = [
     ./cursor.nix
+    ./ssh.nix
     ./git.nix
     ./htop.nix
     ./qt.nix

@@ -1,48 +1,47 @@
-{pkgs, ...}:{
+{pkgs, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
 
     settings = {
-# name: Rosé Pine
-# author: jishnurajendran
-# upstream: https://github.com/jishnurajendran/hyprland-rosepine/blob/main/rose-pine.conf
-# All natural pine, faux fur and a bit of soho vibes for the classy minimalist
-"$base           "=" 0xff191724";
-"$surface        "=" 0xff1f1d2e";
-"$overlay        "=" 0xff26233a";
-"$muted          "=" 0xff6e6a86";
-"$subtle         "=" 0xff908caa";
-"$text           "=" 0xffe0def4";
-"$love           "=" 0xffeb6f92";
-"$gold           "=" 0xfff6c177";
-"$rose           "=" 0xffebbcba";
-"$pine           "=" 0xff31748f";
-"$foam           "=" 0xff9ccfd8";
-"$iris           "=" 0xffc4a7e7";
-"$highlightLow   "=" 0xff21202e";
-"$highlightMed   "=" 0xff403d52";
-"$highlightHigh  "=" 0xff524f67      ";
+      # name: Rosé Pine
+      # author: jishnurajendran
+      # upstream: https://github.com/jishnurajendran/hyprland-rosepine/blob/main/rose-pine.conf
+      # All natural pine, faux fur and a bit of soho vibes for the classy minimalist
+      "$base           " = " 0xff191724";
+      "$surface        " = " 0xff1f1d2e";
+      "$overlay        " = " 0xff26233a";
+      "$muted          " = " 0xff6e6a86";
+      "$subtle         " = " 0xff908caa";
+      "$text           " = " 0xffe0def4";
+      "$love           " = " 0xffeb6f92";
+      "$gold           " = " 0xfff6c177";
+      "$rose           " = " 0xffebbcba";
+      "$pine           " = " 0xff31748f";
+      "$foam           " = " 0xff9ccfd8";
+      "$iris           " = " 0xffc4a7e7";
+      "$highlightLow   " = " 0xff21202e";
+      "$highlightMed   " = " 0xff403d52";
+      "$highlightHigh  " = " 0xff524f67      ";
 
-"$mainMod" = "SUPER";
+      "$mainMod" = "SUPER";
 
       monitor = [
-
-"HDMI-A-1, highres,0x0,1" 
-"desc:Hewlett Packard LA1905 CNC019039F,highres, -900x-200, 1, transform,3"
-"desc:Hewlett Packard LA1905 CNC10108WV,highres,1920x0,1"
-];
-workspace=[
-"1,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
-"2,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
-"3,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
-"4,default:true,monitor:HDMI-A-1"
-"5,default:true,monitor:HDMI-A-1"
-"6,default:true,monitor:HDMI-A-1"
-"7,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
-"8,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
-"9,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
-];
+        "HDMI-A-1, highres,0x0,1"
+        "desc:Hewlett Packard LA1905 CNC019039F,highres, -900x-200, 1, transform,3"
+        "desc:Hewlett Packard LA1905 CNC10108WV,highres,1920x0,1"
+      ];
+      workspace = [
+        "1,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
+        "2,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
+        "3,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
+        "4,default:true,monitor:HDMI-A-1"
+        "5,default:true,monitor:HDMI-A-1"
+        "6,default:true,monitor:HDMI-A-1"
+        "7,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
+        "8,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
+        "9,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
+      ];
 
       env = [
         "XDG_CURRENT_DESKTOP,Hyprland"
@@ -62,19 +61,21 @@ workspace=[
       input = {
         kb_layout = "gb";
         follow_mouse = 1;
-	numlock_by_default=true;
+        numlock_by_default = true;
         touchpad = {
           natural_scroll = false;
         };
-        sensitivity = 0; # -1.0 - 1.0, 0 means no modification.      
-};
-device = [{
-name = "wacom-intuos-m-pen";
-relative_input = true;
-#transform = 0;
-output = "HDMI-A-1";
-#sensitivity = 1;
-}];
+        sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+      };
+      device = [
+        {
+          name = "wacom-intuos-m-pen";
+          relative_input = true;
+          #transform = 0;
+          output = "HDMI-A-1";
+          #sensitivity = 1;
+        }
+      ];
 
       general = {
         gaps_in = 5;
@@ -85,7 +86,7 @@ output = "HDMI-A-1";
 
         #layout = "dwindle";
 
-      	#no_cursor_warps = false;
+        #no_cursor_warps = false;
       };
 
       decoration = {
@@ -146,7 +147,7 @@ output = "HDMI-A-1";
       windowrule = [
         "float, ^(imv)$"
         "float, ^(mpv)$"
-	"float, class:^(wofi)$"
+        "float, class:^(wofi)$"
       ];
 
       exec-once = [
@@ -173,9 +174,9 @@ output = "HDMI-A-1";
         "$mainMod SHIFT, C, exec, ${pkgs.grimblast}/bin/grimblast copy area"
         "$mainMod ALT, C, exec, hyprpicker -f hex -a -r"
 
-	#application keybinds
-	"$mainMod SHIFT, F, exec, firefox-devedition"
-	"$mainMod SHIFT, S, exec, steam"
+        #application keybinds
+        "$mainMod SHIFT, F, exec, firefox-devedition"
+        "$mainMod SHIFT, S, exec, steam"
 
         # Move focus with mainMod + arrow keys
         "$mainMod, left,  movefocus, l"
@@ -228,7 +229,7 @@ output = "HDMI-A-1";
         ", XF86AudioLowerVolume, exec, pamixer -d 5 "
         ", XF86AudioMute, exec, pamixer -t"
         ", XF86AudioMicMute, exec, pamixer --default-source -m"
-        
+
         # Brightness control
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%- "
         ", XF86MonBrightnessUp, exec, brightnessctl set +5% "

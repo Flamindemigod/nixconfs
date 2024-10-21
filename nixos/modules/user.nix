@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.zsh.enable = true;
 
   users = {
@@ -7,8 +8,12 @@
     users.flamin = {
       isNormalUser = true;
       description = "Flamin";
-      extraGroups = [ "networkmanager" "wheel" "input" ];
-      packages = with pkgs; [];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "input"
+      ];
+      packages = with pkgs; [ ];
     };
   };
 
