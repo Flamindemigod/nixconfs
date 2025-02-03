@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
@@ -9,6 +8,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    (callPackage ./packages/OkBob.nix {})
+    localsend
     nixfmt-rfc-style
     # Desktop apps
     wofi
@@ -17,13 +18,14 @@
     pcmanfm-qt
     kitty
     libresprite
+    #blender-hip
 
     # Coding stuff
     gnumake
     gcc
     nodejs
     python
-    (python3.withPackages (ps: with ps; [ requests ]))
+    (python3.withPackages (ps: with ps; [requests]))
 
     tmux
     tmuxPlugins.sensible
@@ -32,13 +34,14 @@
     tmuxPlugins.continuum
 
     # CLI utils
+    neovim
     vim
     file
     tree
     wget
     git
     fastfetch
-    (btop.override { rocmSupport = true; })
+    #(btop.override {rocmSupport = true;})
     htop
     nix-index
     unzip
@@ -48,7 +51,6 @@
     mediainfo
     ranger
     zram-generator
-    cava
     zip
     ntfs3g
     yt-dlp
@@ -83,13 +85,8 @@
       vendorHash = "sha256-M5n7/QWQ5POWE4hSCMa0+GOVhEDCOILYqkSYIGoy/l0=";
     }))
     # WMs and stuff
-    hyprland
-    hyprpaper
-    hyprpicker
-    hypridle
     kdePackages.polkit-kde-agent-1
     seatd
-    xdg-desktop-portal-hyprland
     waybar
     waybar-mpris
     playerctl
@@ -105,10 +102,10 @@
     #input control
     ckb-next
 
-    # GPU stuff 
+    # GPU stuff
     #amdvlk
-    rocmPackages.rocm-smi
-    rocm-opencl-icd
+    #rocmPackages.rocm-smi
+    #rocm-opencl-icd
     glaxnimate
 
     # Screenshotting
@@ -121,13 +118,17 @@
     libsForQt5.qtgraphicaleffects
 
     vesktop
-    hyprpicker
+    (discord-canary.override {
+      #withOpenASAR = true; # can do this here too
+      withVencord = true;
+    })
     keepassxc
     # Other
     home-manager
     libsForQt5.qt5ct
     nixfmt-rfc-style
     gtk4
+    prismlauncher
   ];
 
   fonts.packages = with pkgs; [
@@ -140,6 +141,6 @@
     font-awesome
     powerline-fonts
     powerline-symbols
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    nerd-fonts.symbols-only
   ];
 }

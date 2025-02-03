@@ -1,15 +1,14 @@
 {
   programs.cava = {
-    enable = true;
+    enable = false;
     settings = {
-      general.autosens = 1;
-      general.sensitivity = 120;
+      #general.autosens = 1;
+      general.sensitivity = 75;
       general.bars = 0;
       general.bar_width = 0.5;
       general.bar_spacing = 0.2;
       output.method = "ncurses";
       output.channels = "stereo";
-      color.background = "'#191724'";
       color.gradient = 1;
       color.gradient_count = 8;
       color.gradient_color_1 = "'#31748f'";

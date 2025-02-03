@@ -4,7 +4,7 @@
     mouse = true;
     disableConfirmationPrompt = true;
     keyMode = "vi";
-    newSession = true;
+    newSession = false;
     sensibleOnTop = true;
     shell = "${pkgs.zsh}/bin/zsh";
     terminal = "st-256color";
@@ -37,14 +37,7 @@
         extraConfig = ''
           set -g @resurrect-strategy-nvim 'session'
           set -g @resurrect-save 'S'
-          set -g @resurrect-resore 'V'
-        '';
-      }
-      {
-        plugin = tmuxPlugins.continuum;
-        extraConfig = ''
-          set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '15' # minutes
+          set -g @resurrect-restore 'F'
         '';
       }
     ];

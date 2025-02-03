@@ -3,6 +3,7 @@
     ./cursor.nix
     ./ssh.nix
     ./git.nix
+    ./nvim.nix
     ./htop.nix
     ./qt.nix
     ./gtk.nix

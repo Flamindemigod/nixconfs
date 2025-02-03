@@ -1,9 +1,8 @@
 {pkgs, ...}: {
-  wayland.windowManager.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-
-    settings = {
+    wayland.windowManager.hyprland.enable = true;
+    wayland.windowManager.hyprland.xwayland.enable = true;
+    wayland.windowManager.hyprland.systemd.variables = ["--all"];
+    wayland.windowManager.hyprland.settings = {
       # name: Rosé Pine
       # author: jishnurajendran
       # upstream: https://github.com/jishnurajendran/hyprland-rosepine/blob/main/rose-pine.conf
@@ -65,18 +64,8 @@
         touchpad = {
           natural_scroll = false;
         };
-        sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+        sensitivity = -1; # -1.0 - 1.0, 0 means no modification.
       };
-      device = [
-        {
-          name = "wacom-intuos-m-pen";
-          relative_input = true;
-          #transform = 0;
-          output = "HDMI-A-1";
-          #sensitivity = 1;
-        }
-      ];
-
       general = {
         gaps_in = 5;
         gaps_out = 20;
@@ -98,13 +87,8 @@
           passes = 3;
           new_optimizations = true;
         };
-
-        drop_shadow = true;
-        shadow_range = 4;
-        shadow_render_power = 3;
         active_opacity = 0.9;
         inactive_opacity = 0.7;
-        "col.shadow" = "$subtle";
       };
 
       animations = {
@@ -150,32 +134,47 @@
         "float, class:^(wofi)$"
       ];
 
+      layerrule = [
+      ];
+      windowrulev2 = [
+        "float, title:^(Sprinator)$"
+        "size 100% 95%, title:^(Sprinator)$"
+        "center, title:^(Sprinator)$"
+        "noinitialfocus, title:^(Sprinator)$"
+        "nofocus 1, title:^(Sprinator)$"
+        "xray 1, title:^(Sprinator)$"
+        "opacity 1.0 override 1.0 override, title:^(Sprinator)$"
+        "allowsinput 0, title:^(Sprinator)$"
+        "noborder 1, title:^(Sprinator)$"
+        "noshadow 1, title:^(Sprinator)$"
+        "noblur 1, title:^(Sprinator)$"
+      ];
+
       exec-once = [
-        "waybar"
-        "hyprpaper"
+        "${pkgs.waybar}/bin/waybar"
         "${pkgs.ckb-next}/bin/ckb-next -b"
-        "wl-paste --type text --watch cliphist store"
-        "wl-paste --type image --watch cliphist store"
+        "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch cliphist store"
+        "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch cliphist store"
         "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1"
       ];
 
       bind = [
-        "$mainMod SHIFT, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+        "$mainMod SHIFT, V, exec, ${pkgs.cliphist}/bin/cliphist list | ${pkgs.wofi}/bin/wofi --dmenu | ${pkgs.cliphist}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy"
 
-        "$mainMod, Q, exec, kitty"
+        "$mainMod, Q, exec, ${pkgs.kitty}/bin/kitty"
         "$mainMod, C, killactive,"
         "$mainMod, M, exit,"
-        "$mainMod, E, exec, dolphin"
+        "$mainMod, E, exec, ${pkgs.dolphin}/bin/dolphin"
         "$mainMod, V, togglefloating,"
         "$mainMod, F, fullscreen,"
-        "$mainMod, R, exec, wofi --show drun"
+        "$mainMod, R, exec, ${pkgs.wofi}/bin/wofi --show drun"
         "$mainMod, P, pseudo, # dwindle"
         "$mainMod, J, togglesplit, # dwindle"
         "$mainMod SHIFT, C, exec, ${pkgs.grimblast}/bin/grimblast copy area"
-        "$mainMod ALT, C, exec, hyprpicker -f hex -a -r"
+        "$mainMod ALT, C, exec, ${pkgs.hyprpicker}/bin/hyprpicker -f hex -a -r"
 
         #application keybinds
-        "$mainMod SHIFT, F, exec, firefox-devedition"
+        "$mainMod SHIFT, F, exec, ${pkgs.firefox-devedition}/bin/firefox-devedition"
         "$mainMod SHIFT, S, exec, steam"
 
         # Move focus with mainMod + arrow keys
@@ -254,5 +253,4 @@
         "$mainMod, mouse:273, resizewindow"
       ];
     };
-  };
 }

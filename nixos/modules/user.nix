@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.zsh.enable = true;
 
   users = {
@@ -13,7 +12,7 @@
         "wheel"
         "input"
       ];
-      packages = with pkgs; [ ];
+      packages = with pkgs; [];
     };
   };
 

@@ -1,14 +1,14 @@
-{ inputs, ... }:
-{
+{inputs, pkgs, ...}: let 
+  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in{
   imports = [
     ./hardware-configuration.nix
     ./packages.nix
     ./modules/bundle.nix
   ];
 
-  disabledModules =
-    [
-    ];
+  disabledModules = [
+  ];
   security.polkit.enable = true;
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
@@ -61,14 +61,43 @@
 
   # Configure console keymap
   console.keyMap = "uk";
+  
+  programs.gamemode.enable = true;
+
+  programs.hyprland = {
+    enable = true;
+    # set the flake package
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # make sure to also set the portal package, so that they are in sync
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
+   hardware.graphics = {
+    package = pkgs-unstable.mesa.drivers;
+
+    # if you also want 32-bit support (e.g for Steam)
+    enable32Bit = true;
+    package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
+  };
 
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ]; # Enabling flakes
+
   nix.settings = {
-    substituters = [ "https://ezkea.cachix.org" ];
-    trusted-public-keys = [ "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
+    substituters = [
+"https://hyprland.cachix.org"
+      "https://ezkea.cachix.org"];
+    trusted-public-keys = [
+"hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="];
   };
+
+  nix.gc = {
+    automatic = true;
+    randomizedDelaySec = "14m";
+    options = "--delete-older-than 10d";
+  };
+
   system.stateVersion = "23.05"; # Don't change it bro
 }

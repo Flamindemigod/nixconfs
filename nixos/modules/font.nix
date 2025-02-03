@@ -3,9 +3,9 @@
   fonts.enableDefaultPackages = true;
   fonts.fontconfig = {
     defaultFonts = {
-      serif = [ "Liberation Serif" ];
-      sansSerif = [ "Liberation" ];
-      monospace = [ "FiraCode" ];
+      serif = ["Liberation Serif"];
+      sansSerif = ["Liberation"];
+      monospace = ["FiraCode"];
     };
   };
 }

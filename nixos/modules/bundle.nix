@@ -1,7 +1,8 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
+    ./appimage.nix
     ./bootloader.nix
+    ./udev.nix
     ./input.nix
     ./sddm.nix
     ./ssh.nix
@@ -16,5 +17,6 @@
     ./steam.nix
     ./flatpak.nix
     ./font.nix
+    ./noisetorch.nix
   ];
 }

@@ -1,0 +1,3 @@
+[submodule "home-manager/modules/nvim"]
+	path = home-manager/modules/nvim
+	url = git@github.com:Flamindemigod/NVimConfig.git
