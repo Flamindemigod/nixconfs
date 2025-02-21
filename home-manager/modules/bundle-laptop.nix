@@ -1,0 +1,19 @@
+{
+  imports = [
+    ./cursor.nix
+    ./ssh.nix
+    ./git.nix
+    ./nvim.nix
+    ./htop.nix
+    ./qt.nix
+    ./gtk.nix
+    ./cava.nix
+    ./mangohud.nix
+    ./kitty-laptop.nix
+    ./tmux.nix
+    ./wms/hyprland-laptop.nix
+    ./wms/hyprpaper-laptop.nix
+    ./wms/waybar-laptop.nix
+    ./wms/wofi.nix
+  ];
+}

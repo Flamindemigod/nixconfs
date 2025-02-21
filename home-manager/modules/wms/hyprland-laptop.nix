@@ -26,20 +26,15 @@
     "$mainMod" = "SUPER";
 
     monitor = [
-      "HDMI-A-1, highres,0x0,1"
-      "desc:Hewlett Packard LA1905 CNC019039F,highres, -900x-200, 1, transform,3"
-      "desc:Hewlett Packard LA1905 CNC10108WV,highres,1920x0,1"
+      "eDP-1,preferred, auto, auto"
     ];
+    xwayland = {
+      force_zero_scaling = true;
+    };
     workspace = [
-      "1,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
-      "2,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
-      "3,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
-      "4,default:true,monitor:HDMI-A-1"
-      "5,default:true,monitor:HDMI-A-1"
-      "6,default:true,monitor:HDMI-A-1"
-      "7,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
-      "8,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
-      "9,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
+      "1,default:true,monitor:eDP-1"
+      "2,default:true,monitor:eDP-1"
+      "3,default:true,monitor:eDP-1"
     ];
 
     env = [
@@ -64,12 +59,12 @@
       touchpad = {
         natural_scroll = false;
       };
-      sensitivity = -1; # -1.0 - 1.0, 0 means no modification.
+      sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
     };
     general = {
-      gaps_in = 5;
-      gaps_out = 20;
-      border_size = 2;
+      gaps_in = 2;
+      gaps_out = 5;
+      border_size = 1;
       "col.active_border" = "$rose $pine $love $iris 90deg";
       "col.inactive_border" = "$muted";
 
@@ -79,7 +74,7 @@
     };
 
     decoration = {
-      rounding = 10;
+      rounding = 5;
 
       blur = {
         enabled = true;
@@ -117,7 +112,7 @@
     };
 
     gestures = {
-      workspace_swipe = false;
+      workspace_swipe = true;
     };
 
     misc = {
@@ -135,6 +130,9 @@
     ];
 
     layerrule = [
+      "noanim, astal_statusline"
+      "noanim, astal_menu_mode"
+      "noanim, astal_file_explorer"
     ];
     windowrulev2 = [
       "float, title:^(Sprinator)$"
@@ -152,7 +150,6 @@
 
     exec-once = [
       "${pkgs.waybar}/bin/waybar"
-      "${pkgs.ckb-next}/bin/ckb-next -b"
       "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch cliphist store"
       "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch cliphist store"
       "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1"

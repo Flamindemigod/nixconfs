@@ -2,6 +2,7 @@
   imports = [
     ./appimage.nix
     ./bootloader.nix
+    ./bootloader-laptop.nix
     ./udev.nix
     ./input.nix
     ./sddm.nix
@@ -18,5 +19,6 @@
     ./flatpak.nix
     ./font.nix
     ./noisetorch.nix
+    ./wpa.nix
   ];
 }
