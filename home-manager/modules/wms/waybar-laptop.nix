@@ -113,30 +113,6 @@
     };
 
     style = ''
-      /*
-      * Variant: Rosé Pine
-      * Maintainer: DankChoir
-      */
-
-      @define-color base            #191724;
-      @define-color surface         #1f1d2e;
-      @define-color overlay         #26233a;
-
-      @define-color muted           #6e6a86;
-      @define-color subtle          #908caa;
-      @define-color text            #e0def4;
-
-      @define-color love            #eb6f92;
-      @define-color gold            #f6c177;
-      @define-color rose            #ebbcba;
-      @define-color pine            #31748f;
-      @define-color foam            #9ccfd8;
-      @define-color iris            #c4a7e7;
-
-      @define-color highlightLow    #21202e;
-      @define-color highlightMed    #403d52;
-      @define-color highlightHigh   #524f67;
-
 
       * {
           font-family: FiraCode, Noto Sans,FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -166,9 +142,6 @@
       #mpd {
           padding: 0 10px;
           border-radius: 12px;
-          background: @surface;
-          color: @foam;
-          box-shadow: @base 2 2 5 2px;
           margin-top: 5px;
           margin-bottom: 10px;
           margin-right: 5px;
@@ -179,22 +152,18 @@
       }
 
       #custom-waybar-mpris label {
-          color: @foam;
           font-weight: bold;
       }
 
       #custom-waybar-mpris.paused label {
-          color: @pine;
           font-weight: bolder;
       }
 
       #workspaces button label{
-          color: 	@love ;
           font-weight: bolder;
       }
 
       #workspaces button.active label{
-          color: @base;
           font-weight: bolder;
       }
 
@@ -202,23 +171,17 @@
           background-color: transparent;
       }
       #workspaces button{
-          box-shadow: @base 2 2 5 2px;
-          background-color: @surface ;
           border-radius: 15px;
           margin-right: 10px;
           padding-left: 7px;
           padding-right: 7px;
           font-weight: bolder;
-          color: 	@text ;
           transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
       }
 
       #workspaces button.active{
           padding-right: 20px;
-          box-shadow: @base 2 2 5 2px;
           padding-left: 20px;
-          background: @surface;
-          background: radial-gradient(circle, @love 0%, @gold 12%, @rose 19%, @pine 20%, @foam 24%, @iris 36%, @foam 37%, @pine 48%, @rose 52%, @gold 52%, @love 59%, @gold 66%, @rose 67%, @pine 68%, @foam 77%, @iris 78%, @foam 82%, @pine 83%, @rose 90%, @gold 100%);
           background-size: 400% 400%;
           animation: gradient_f 20s ease-in-out infinite;
           transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
@@ -261,34 +224,24 @@
 
 
       #custom-waybar-mpris.playing{
-          background: radial-gradient(circle, @iris 0%, @foam 6%, @love 14%,  @iris 14%, @foam 18%, @pine 28%, @love 28%, @iris 58%, @foam 69%, @pine 69%, @foam 72%, @foam 73%, @pine  78%, @base 100%) ;
           background-size: 400% 400%;
           animation: gradient_f 9s cubic-bezier(.72,.39,.21,1) infinite;
-          text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
           font-weight: bold;
-          color: @base ;
       }
 
       #custom-waybar-mpris.paused{
-          background: @surface ;
           font-weight: bolder;
-          color: @text;
       }
 
       #clock label{
-          color: @text;
           font-weight:  bolder;
       }
 
       #clock {
-          background: @surface;
-          background: linear-gradient(120deg, @iris 0%, @iris 5%, @surface 5%, @surface 20%, @iris 20%, @iris 40%, @surface 40%, @surface 60%, @iris 60%, @iris 80%, @surface 80%, @surface 95%, @iris 95%, @iris 100%);
 
           background-size: 200% 300%;
 
           animation: gradient_f_nh 4s linear infinite;
-          color: @text ;
-          text-shadow: 0 0 5px @subtle;
 
           font-weight: bolder;
       }
@@ -302,49 +255,35 @@
       }
 
       #cpu label{
-          color: @text;
       }
 
       #cpu {
-          background: @surface;
-          background: radial-gradient(circle, @surface 30%, @overlay 100%);
-          color: 	@text;
       }
 
       #network{
-          color: @base;
       }
 
       #network.disabled{
-          background-color: @surface;
       }
 
       #network.disconnected{
-          background: @love;
-          background: linear-gradient(45deg, @love 0%, @gold 100%);
-          color: @text;
           font-weight: bolder;
           padding-top: 3px;
           padding-right: 11px;
       }
 
       #network.linked, #network.wifi{
-          background-color: @rose ;
       }
 
       #network.ethernet{
-          background-color: @pine ;
       }
 
       #wireplumber {
-          background-color:  	@surface;
-          color: @text;
           font-weight: bolder;
       }
 
 
       #tray {
-          background-color: @surface;
       }
 
       #tray > .passive {
@@ -353,7 +292,6 @@
 
       #tray > .needs-attention {
           -gtk-icon-effect: highlight;
-          background-color: @rose;
       }
     '';
   };

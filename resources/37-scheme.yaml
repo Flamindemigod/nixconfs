@@ -1,0 +1,37 @@
+system: "base16"
+name: "37 x Sophia"
+author: "Flamindemigod"
+variant: "dark"
+palette:
+  base00: "#1e1e2e"
+  base01: "#000e5e"
+  base02: "#003da8"
+  base03: "#0069cc"
+  base04: "#ad92d1"
+  base05: "#ffeaff"
+  base06: "#b0ecff"
+  base07: "#00c7ff"
+  base0A: "#e96c24"
+  base09: "#a07de9"
+  base08: "#f35b76"
+  base0E: "#fe562f"
+  base0C: "#0097e8"
+  base0F: "#fe5362"
+  base0B: "#0093ff"
+  base0D: "#778ce0"
+  # base00: "#2F2F2F" ##Default Background
+  # base01: "#38455C" ##Lighter Background (Status Bars/Line Numbers/Folding Marks)
+  # base02: "#3C8FAC" ##Selection Background
+  # base03: "#A396CB" ##Comments,Invisibles,LineHighlightning
+  # base04: "#DEDEDE" ##Dark Forground (Status Bars)
+  # base05: "#EFEFEF" ##Default Foreground, Caret, Delims, Ops
+  # base06: "#FCFCFC" ##Light Foreground (Not Used Much)
+  # base07: "#FEFEFE" ##Light Foreground (Not Used Much)
+  # base08: "#be4678" #Vars,XML Tags, Markup Links, Markup Lists, Diffs Deleted
+  # base09: "#aF573c" #Ints,Bools,Consts,XML Attrs,Markup LinkUlr
+  # base0A: "#a06e3b" #Classes,Markup Bold, Search TextBackground
+  # base0B: "#2a9292" #Strings,InheritedClasses,MarkupCode,DiffInserted
+  # base0C: "#398bc6" #Support,RegEx,EscChars,Markup Quotes,
+  # base0D: "#576ddb" #Functions,Methods,Attr Ids,Headings,
+  # base0E: "#955ae7" #Keywords,Storage,Selector,MarkupItalic,DiffChanged
+  # base0F: "#bf4F0b" #Deprecated,Opening/Closing Lang Tags

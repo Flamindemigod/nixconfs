@@ -20,5 +20,6 @@
     ./font.nix
     ./noisetorch.nix
     ./wpa.nix
+    ./stylix.nix
   ];
 }

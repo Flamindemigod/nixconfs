@@ -1,6 +1,7 @@
 {
   imports = [
     ./cursor.nix
+    ./dunst.nix
     ./ssh.nix
     ./git.nix
     ./nvim.nix
@@ -15,5 +16,6 @@
     ./wms/hyprpaper-laptop.nix
     ./wms/waybar-laptop.nix
     ./wms/wofi.nix
+    ./stylix.nix
   ];
 }

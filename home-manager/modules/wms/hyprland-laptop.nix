@@ -7,21 +7,6 @@
     # author: jishnurajendran
     # upstream: https://github.com/jishnurajendran/hyprland-rosepine/blob/main/rose-pine.conf
     # All natural pine, faux fur and a bit of soho vibes for the classy minimalist
-    "$base           " = " 0xff191724";
-    "$surface        " = " 0xff1f1d2e";
-    "$overlay        " = " 0xff26233a";
-    "$muted          " = " 0xff6e6a86";
-    "$subtle         " = " 0xff908caa";
-    "$text           " = " 0xffe0def4";
-    "$love           " = " 0xffeb6f92";
-    "$gold           " = " 0xfff6c177";
-    "$rose           " = " 0xffebbcba";
-    "$pine           " = " 0xff31748f";
-    "$foam           " = " 0xff9ccfd8";
-    "$iris           " = " 0xffc4a7e7";
-    "$highlightLow   " = " 0xff21202e";
-    "$highlightMed   " = " 0xff403d52";
-    "$highlightHigh  " = " 0xff524f67      ";
 
     "$mainMod" = "SUPER";
 
@@ -41,10 +26,9 @@
       "XDG_CURRENT_DESKTOP,Hyprland"
       "XDG_SESSION_TYPE,wayland"
       "XDG_SESSION_DESKTOP,Hyprland"
-      "XCURSOR_SIZE,24"
+      "XCURSOR_SIZE,16"
       "QT_QPA_PLATFORM,wayland"
       "XDG_SCREENSHOTS_DIR,~/screens"
-      "GTK_THEME,adw-gtk3-dark"
     ];
 
     debug = {
@@ -65,8 +49,6 @@
       gaps_in = 2;
       gaps_out = 5;
       border_size = 1;
-      "col.active_border" = "$rose $pine $love $iris 90deg";
-      "col.inactive_border" = "$muted";
 
       #layout = "dwindle";
 

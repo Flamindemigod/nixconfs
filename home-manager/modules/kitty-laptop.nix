@@ -1,11 +1,6 @@
 {pkgs, ...}: {
   programs.kitty = {
     enable = true;
-    font = {
-      name = "FiraCode Nerd Font";
-      size = 12.0;
-      package = pkgs.fira-code;
-    };
     settings = {
       enable_audio_bell = "no";
     };

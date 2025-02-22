@@ -1,4 +1,8 @@
 {pkgs, ...}: let
+  main37Sophia = ../../../resources/37-sophia-by-kurohush.jpg;
+  #alt37Sophia = ../../../resources/37-sophia-shule-de-yu.jpg;
+  alt37Sophia = ../../../resources/37-sophia-by-gjygyao.jpg;
+  main37 = ../../../resources/37-by-chejamong.jpg;
   furinaCenter = pkgs.fetchurl {
     url = "https://github.com/Flamindemigod/dots/blob/6b32e6264b04de93a0f1afd1946fe30fac9f1058/hypr/Wallpapers/FurinaWallpaper.png?raw=true";
     sha256 = "sha256-zBkM83YeRe+QyHHchV4sa+Vl+VaKBVUJT1sDE3eSgmE=";
@@ -25,14 +29,15 @@ in {
     settings = {
       splash = false;
       preload = [
-        "${furinaCenter}"
+        "${main37Sophia}"
+        #"${furinaCenter}"
         # "${sparkleLeft}"
         # "${yelanRight}"
-        "${velLeft}"
-        "${velRight}"
+        #"${velLeft}"
+        #"${velRight}"
       ];
       wallpaper = [
-        "eDP-1, ${furinaCenter}"
+        "eDP-1, ${main37Sophia}"
         # "desc:Hewlett Packard LA1905 CNC019039F, contain:${sparkleLeft}"
         # "desc:Hewlett Packard LA1905 CNC10108WV, ${yelanRight}"
         #"desc:Hewlett Packard LA1905 CNC019039F, ${velLeft}"

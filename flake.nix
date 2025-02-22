@@ -16,6 +16,7 @@
     };
     hyprland.url = "github:hyprwm/Hyprland";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {
@@ -43,6 +44,7 @@
       };
       modules = [
         ./nixos/configuration.nix
+        inputs.stylix.nixosModules.stylix
         {
           imports = [aagl.nixosModules.default];
           nix.settings = aagl.nixConfig; # Set up Cachix
@@ -64,6 +66,7 @@
       };
       modules = [
         ./nixos/configuration-laptop.nix
+        inputs.stylix.nixosModules.stylix
         {
           imports = [aagl.nixosModules.default];
           nix.settings = aagl.nixConfig; # Set up Cachix
@@ -81,8 +84,6 @@
               hidePodcasts
               shuffle # shuffle+ (special characters are sanitized out of extension names)
             ];
-            theme = spicePkgs.themes.ziro;
-            colorScheme = "rose-pine-moon";
           };
         }
       ];
@@ -90,7 +91,8 @@
 
     homeConfigurations."flamin@hecate" = home-manager.lib.homeManagerConfiguration {
       pkgs = pkgs;
-      modules = [./home-manager/home-laptop.nix];
+      modules = [./home-manager/home-laptop.nix         inputs.stylix.homeManagerModules.stylix
+];
     };
     homeConfigurations."flamin@weneg" = home-manager.lib.homeManagerConfiguration {
       pkgs = pkgs;
