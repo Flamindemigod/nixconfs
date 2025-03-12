@@ -16,6 +16,7 @@
     };
     hyprland.url = "github:hyprwm/Hyprland";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    ags.url = "github:aylur/ags";
     stylix.url = "github:danth/stylix";
   };
 
@@ -90,12 +91,17 @@
     };
 
     homeConfigurations."flamin@hecate" = home-manager.lib.homeManagerConfiguration {
+      extraSpecialArgs = {inherit inputs;};
       pkgs = pkgs;
-      modules = [./home-manager/home-laptop.nix         inputs.stylix.homeManagerModules.stylix
-];
+      modules = [
+        ./home-manager/home-laptop.nix
+        inputs.stylix.homeManagerModules.stylix
+        inputs.ags.homeManagerModules.default
+      ];
     };
     homeConfigurations."flamin@weneg" = home-manager.lib.homeManagerConfiguration {
       pkgs = pkgs;
+
       modules = [
         ./home-manager/home.nix
       ];

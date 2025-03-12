@@ -10,5 +10,8 @@
     Home = {
       pskRaw = "4430ba0091c79f15955be197c26dbd1273a2e320714441f2e0f3e83e03465984";
     };
+    iPhone = {
+      pskRaw = "96570be62eecd6cbe98a5508a9609fe937f31e0381b86efc5458e8500c185de8";
+    };
   };
 }

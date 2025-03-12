@@ -22,12 +22,12 @@
     fsType = "ext4";
   };
 
-  fileSystems."/run/media/pocket" = {
-    device = "/dev/disk/by-uuid/d062558b-c223-4eed-9a41-f3581eaadc53";
-    fsType = "ext4";
-    options = ["nofail" "x-systemd.automount" "x-systemd.mount-timeout=5s"];
-  };
-
+  # fileSystems."/run/media/pocket" = {
+  #   device = "/dev/disk/by-uuid/d062558b-c223-4eed-9a41-f3581eaadc53";
+  #   fsType = "ext4";
+  #   options = ["nofail" "x-systemd.automount" "x-systemd.mount-timeout=1s"];
+  # };
+  #
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/042B-519D";
     fsType = "vfat";

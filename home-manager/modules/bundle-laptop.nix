@@ -1,6 +1,7 @@
 {
   imports = [
     ./cursor.nix
+    ./ags.nix
     ./dunst.nix
     ./ssh.nix
     ./git.nix

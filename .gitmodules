@@ -1,3 +1,6 @@
 [submodule "home-manager/modules/nvim"]
 	path = home-manager/modules/nvim
 	url = git@github.com:Flamindemigod/NVimConfig.git
+[submodule "home-manager/modules/ags-dots"]
+	path = home-manager/modules/ags-dots
+	url = git@github.com:Flamindemigod/ags-dots.git

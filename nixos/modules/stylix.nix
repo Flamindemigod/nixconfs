@@ -1,5 +1,4 @@
-{pkgs, ...}:
-{
+{pkgs, ...}: {
   stylix = {
     enable = true;
     image = ../../resources/37-sophia-by-kurohush.jpg;
@@ -8,15 +7,15 @@
     fonts = {
       serif = {
         package = pkgs.fira-code;
-          name = "FiraCode Nerd Font";
+        name = "FiraCode Nerd Font";
       };
       sansSerif = {
         package = pkgs.fira-code;
-          name = "FiraCode Nerd Font";
+        name = "FiraCode Nerd Font";
       };
       monospace = {
         package = pkgs.jetbrains-mono;
-          name = "JetBrains Mono";
+        name = "JetBrains Mono";
       };
       sizes = {
         applications = 12;
