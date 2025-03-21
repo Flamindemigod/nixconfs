@@ -1,9 +1,16 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  wallpaperDir = ../resources/wallpapers;
+  files = builtins.attrNames (builtins.readDir wallpaperDir);
+  randomIndex = builtins.mod (builtins.hashString "md5" "some-seed") builtins.length files;
+  bgImage = builtins.elemAt files randomIndex;
+  size = "1920x1080";
+in {
   stylix = {
     enable = true;
-    image = ../../resources/37-sophia-by-kurohush.jpg;
-    base16Scheme = ../../resources/37-scheme.yaml;
     polarity = "dark";
+    image = pkgs.runCommand "bg.png" {} ''
+      ${pkgs.imagemagick}/bin/magick "${bgImage}" -resize ${size} $out
+    '';
     fonts = {
       serif = {
         package = pkgs.fira-code;
@@ -28,16 +35,6 @@
       package = pkgs.vanilla-dmz;
       name = "Vanilla-DMZ";
       size = 16;
-    };
-    targets = {
-      chromium.enable = true;
-      console.enable = true;
-      feh.enable = true;
-      gnome.enable = true;
-      gtk.enable = true;
-      nixos-icons.enable = true;
-      qt.enable = true;
-      spicetify.enable = true;
     };
   };
 }

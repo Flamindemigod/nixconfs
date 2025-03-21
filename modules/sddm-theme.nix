@@ -1,4 +1,4 @@
-{pkgs}: let
+{pkgs, ...}: let
   bgImage = "https://github.com/Flamindemigod/dots/blob/2b8a615ad8dc7537ac332d21ac421f764f62ca5b/sddm/chili/assets/background.jpg?raw=true";
   image = pkgs.fetchurl {
     url = bgImage;

@@ -5,8 +5,8 @@
 }: {
   stylix = {
     enable = true;
-    image = ../../resources/37-sophia-by-kurohush.jpg;
-    base16Scheme = ../../resources/37-scheme.yaml;
+    image = ../../resources/wallpapers/jinshi_sanhua_by_artdroiiid_ii.jpg;
+    #base16Scheme = ../../resources/37-scheme.yaml;
     polarity = "dark";
     fonts = {
       serif = {
