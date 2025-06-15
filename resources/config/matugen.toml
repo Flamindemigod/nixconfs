@@ -1,0 +1,22 @@
+
+[config]
+
+[templates.gtk3]
+input_path = "~/.nix/resources/templates/gtk.css"
+output_path = "~/.config/gtk-3.0/colors.css"
+
+[templates.gtk4]
+input_path = "~/.nix/resources/templates/gtk.css"
+output_path = "~/.config/gtk-4.0/colors.css"
+
+[templates.hyprland]
+input_path = "~/.nix/resources/templates/hyprland.conf"
+output_path = "~/.config/hypr/hyprland-colors.conf"
+
+[templates.kitty]
+input_path = "~/.nix/resources/templates/kitty.conf"
+output_path = "~/.config/kitty/colors.conf"
+
+[templates.dunst]
+input_path = "~/.nix/resources/templates/dunstrc-colors"
+output_path = "~/.config/dunst/dunstrc-mut"

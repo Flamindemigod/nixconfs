@@ -19,9 +19,7 @@
     wofi
     mpv
     gparted
-    pcmanfm-qt
     kitty
-    libresprite
     blender-hip
 
     # Coding stuff
@@ -45,24 +43,22 @@
     wget
     git
     fastfetch
-    #(btop.override {rocmSupport = true;})
+    (btop.override {rocmSupport = true;})
     htop
     nix-index
     unzip
     ffmpeg
-    light
-    lux
     mediainfo
     ranger
     zram-generator
     zip
     ntfs3g
     yt-dlp
-    brightnessctl
     openssl
-    lazygit
     bluez
     bluez-tools
+    ripgrep
+    du-dust
 
     # GUI utils
     feh
@@ -77,6 +73,7 @@
     #xorg.xbacklight
 
     # Wayland stuff
+    mangohud
     xwayland
     wl-clipboard
     (cliphist.overrideAttrs (_old: {
@@ -124,7 +121,7 @@
     vesktop
     (discord-canary.override {
       #withOpenASAR = true; # can do this here too
-      withVencord = true;
+      #withVencord = true;
     })
     keepassxc
     # Other

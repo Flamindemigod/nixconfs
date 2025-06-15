@@ -16,6 +16,7 @@ in {
   ];
 
   #Module Overrides
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_15;
   boot.initrd.kernelModules = ["amdgpu"];
   boot.kernelParams = [
     "iommu=pt"
@@ -23,7 +24,7 @@ in {
     "pcie_acs_override=downstream,multifunction"
     ("vfio-pci.ids=" + builtins.concatStringsSep "," gpuIDs)
   ];
-  networking.hostName = "weneg"; # Define your hostname.
+  networking.hostName = "hathor"; # Define your hostname.
 
   system.stateVersion = "23.05"; # Don't change it bro
 
@@ -45,6 +46,7 @@ in {
   };
   nix.gc = {
     automatic = true;
+    dates = "weekly";
     randomizedDelaySec = "14m";
     options = "--delete-older-than 10d";
   };

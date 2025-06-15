@@ -19,6 +19,6 @@
     ./mangohud.nix
     ./kitty-laptop.nix
     ./tmux.nix
-    ./stylix.nix
+    #./stylix.nix
   ];
 }

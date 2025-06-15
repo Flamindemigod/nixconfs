@@ -106,15 +106,9 @@
       disable_hyprland_logo = true;
     };
 
-    windowrule = [
-      "float, ^(imv)$"
-      "float, ^(mpv)$"
-      "float, class:^(wofi)$"
-    ];
-
     layerrule = [
     ];
-    windowrulev2 = [
+    windowrule = [
       "float, title:^(Sprinator)$"
       "size 100% 95%, title:^(Sprinator)$"
       "center, title:^(Sprinator)$"
@@ -126,6 +120,9 @@
       "noborder 1, title:^(Sprinator)$"
       "noshadow 1, title:^(Sprinator)$"
       "noblur 1, title:^(Sprinator)$"
+      "float, title:^(imv)$"
+      "float, title:^(mpv)$"
+      "float, class:^(wofi)$"
     ];
 
     exec-once = [
@@ -142,7 +139,7 @@
       "$mainMod, Q, exec, ${pkgs.kitty}/bin/kitty"
       "$mainMod, C, killactive,"
       "$mainMod, M, exit,"
-      "$mainMod, E, exec, ${pkgs.dolphin}/bin/dolphin"
+      "$mainMod, E, exec, ${pkgs.kdePackages.dolphin}/bin/dolphin"
       "$mainMod, V, togglefloating,"
       "$mainMod, F, fullscreen,"
       "$mainMod, R, exec, ${pkgs.wofi}/bin/wofi --show drun"

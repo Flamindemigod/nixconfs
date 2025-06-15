@@ -8,7 +8,6 @@ in {
     ./appimage.nix
     ./audio.nix
     ./bluetooth.nix
-    ./bootloader.nix
     ./env.nix
     ./flatpak.nix
     ./hyprland.nix
@@ -17,11 +16,14 @@ in {
     ./sddm.nix
     ./ssh.nix
     ./steam.nix
-    #./stylix.nix
+    ./font.nix
+    ./stylix.nix
     ./trim.nix
     ./udev.nix
     ./user.nix
     ./wpa.nix
     ./zram.nix
+    ./vm.nix
+    ./sunshine.nix
   ];
 }

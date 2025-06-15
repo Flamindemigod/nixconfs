@@ -12,44 +12,29 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = [
-    "nvme"
-    "xhci_pci"
-    "ahci"
-    "usb_storage"
-    "usbhid"
-    "sd_mod"
-  ];
+  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
+
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/ebbce452-f471-4841-b1e5-472c10f7d91d";
+    device = "/dev/disk/by-uuid/6a0a2393-4de4-49ba-898a-4d0a4980d3b9";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/E22C-0A0D";
+    device = "/dev/disk/by-uuid/23A2-2DCE";
     fsType = "vfat";
-    options = [
-      "fmask=0077"
-      "dmask=0077"
-    ];
+    options = ["fmask=0077" "dmask=0077"];
   };
-  fileSystems."/mnt/LAtlas" = {
+
+  fileSystems."/mnt/Atlas" = {
     device = "/dev/disk/by-uuid/cb1a0105-d5ca-4a91-a976-b00f21308afc";
     fsType = "ext4";
   };
-  #fileSystems."/mnt/Firefly" = {
-  #  device = "/dev/disk/by-uuid/632c4aec-e3b1-4667-9f56-5218b035e1ad";
-  #  fsType = "ext4";
-  #};
-  fileSystems."/mnt/Atlas" = {
-    device = "/dev/disk/by-uuid/545201cb-c10f-4ccb-8064-2812129bc63e";
-    fsType = "ext4";
-  };
+
   swapDevices = [
-    {device = "/dev/disk/by-uuid/c542ca3f-bc32-4287-94a2-25709cb43a77";}
+    {device = "/dev/disk/by-uuid/44673e71-0526-47ce-9242-81d3451e1098";}
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

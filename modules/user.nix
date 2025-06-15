@@ -11,6 +11,7 @@
         "networkmanager"
         "wheel"
         "input"
+        "libvirtd"
       ];
       packages = with pkgs; [];
     };

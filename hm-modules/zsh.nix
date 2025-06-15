@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -12,7 +16,7 @@
     in {
       ob = "OkBob";
       rb = "sudo nixos-rebuild switch --flake ${flakeDir}";
-      upd = "nix flake update ${flakeDir}";
+      upd = "nix flake update --flake ${flakeDir}";
       upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
 
       hms = "home-manager switch --flake ${flakeDir}";
@@ -24,6 +28,7 @@
       v = "nvim";
       se = "sudoedit";
       ff = "fastfetch";
+      du = "dust";
     };
 
     history.size = 10000;

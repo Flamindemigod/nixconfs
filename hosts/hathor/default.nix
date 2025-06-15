@@ -10,8 +10,10 @@ in
     specialArgs = {inherit inputs;};
     system = "x86_64-linux";
     modules = [
-      ./configuration.nix
+      inputs.stylix.nixosModules.stylix
       inputs.home-manager.nixosModules.home-manager
+      inputs.nvf.nixosModules.default
+      ./configuration.nix
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
