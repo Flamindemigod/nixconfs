@@ -3,15 +3,31 @@
   lib,
   ...
 }: let
+
+  readSymlink =
+    path:
+    builtins.exec
+      or (throw "builtins.exec needed for readlink, pass the following CLI flag to enable it: --option allow-unsafe-native-code-during-evaluation true")
+      [
+        "bash"
+        "-c"
+        ''
+          echo "\"$(realpath ${toString path})\""
+        ''
+      ];
+
+
+
   ##bgImage = ../resources/wallpapers/__herta_and_the_herta_honkai_and_1_more_drawn_by_niukou_kouzi__sample-e0de37fb0ac3173d9426c915128fdb7c.jpg;
-  bgImage = ../resources/wallpapers/lupa.png;
+  bgImage = /. + readSymlink ../resources/wallpapers/wallpaper;
 in {
   stylix = {
     enable = true;
     polarity = "dark";
-    image = pkgs.runCommand "bg.png" {} ''
-      ${pkgs.imagemagick}/bin/magick "${bgImage}" -resize "1920x1080" $out
-    '';
+    image = bgImage;
+    # image = pkgs.runCommand "bg.png" {} ''
+    #   ${pkgs.imagemagick}/bin/magick "${bgImage}" -resize "1920x1080" $out
+    # '';
     fonts = {
       serif = {
         package = pkgs.fira-code;

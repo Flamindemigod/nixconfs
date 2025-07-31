@@ -8,6 +8,10 @@
     sensibleOnTop = true;
     shell = "${pkgs.zsh}/bin/zsh";
     terminal = "st-256color";
+    extraConfig = ''
+      set -gq allow-passthrough on
+      set -g visual-activity off
+    '';
     plugins = with pkgs; [
       {
         plugin = tmuxPlugins.rose-pine;

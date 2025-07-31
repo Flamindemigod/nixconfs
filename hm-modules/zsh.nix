@@ -15,7 +15,7 @@
       flakeDir = "~/.nix";
     in {
       ob = "OkBob";
-      rb = "sudo nixos-rebuild switch --flake ${flakeDir}";
+      rb = "sudo nixos-rebuild switch --flake ${flakeDir} --option allow-unsafe-native-code-during-evaluation true";
       upd = "nix flake update --flake ${flakeDir}";
       upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
 

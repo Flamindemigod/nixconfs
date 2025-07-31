@@ -26,6 +26,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf.url = "github:notashelf/nvf";
+    moonlight = {
+      url = "github:moonlight-mod/moonlight/develop"; # Add `/develop` to the flake URL to use nightly.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = {
     self,

@@ -11,7 +11,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-    (callPackage ./packages/OkBob.nix {})
+    (callPackage ../../pkgs/OkBob.nix {})
+    (callPackage ../../pkgs/lsfg-ui.nix {})
+    (callPackage ../../pkgs/lsfg-vk.nix {})
     inputs.matugen.packages.${system}.default
     localsend
     nixfmt-rfc-style
@@ -49,7 +51,7 @@
     unzip
     ffmpeg
     mediainfo
-    ranger
+    yazi
     zram-generator
     zip
     ntfs3g
@@ -118,7 +120,11 @@
     libsForQt5.qtquickcontrols2
     libsForQt5.qtgraphicaleffects
 
-    vesktop
+    #vesktop
+    (discord.override {
+      moonlight = inputs.moonlight.packages.${pkgs.system}.moonlight;
+      withMoonlight = true;
+    })
     (discord-canary.override {
       #withOpenASAR = true; # can do this here too
       #withVencord = true;
@@ -140,6 +146,8 @@
     gst_all_1.gst-libav
     winetricks
     protonup-qt
+
+    cava
   ];
 
   fonts.packages = with pkgs; [

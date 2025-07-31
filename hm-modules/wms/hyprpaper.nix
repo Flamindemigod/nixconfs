@@ -1,5 +1,18 @@
 {pkgs, ...}: let
-  main = ../../resources/wallpapers/lupa.png;
+  readSymlink = path:
+    builtins.exec
+      or (throw "builtins.exec needed for readlink, pass the following CLI flag to enable it: --option allow-unsafe-native-code-during-evaluation true")
+    [
+      "bash"
+      "-c"
+      ''
+        echo "\"$(realpath ${toString path})\""
+      ''
+    ];
+
+  main = readSymlink ../../resources/wallpapers/wallpaper;
+  wallLeft = readSymlink ../../resources/wallpapers/wallLeft;
+  wallRight = readSymlink ../../resources/wallpapers/wallRight;
   furinaCenter = pkgs.fetchurl {
     url = "https://github.com/Flamindemigod/dots/blob/6b32e6264b04de93a0f1afd1946fe30fac9f1058/hypr/Wallpapers/FurinaWallpaper.png?raw=true";
     sha256 = "sha256-zBkM83YeRe+QyHHchV4sa+Vl+VaKBVUJT1sDE3eSgmE=";
@@ -29,15 +42,15 @@ in {
         "${main}"
         # "${sparkleLeft}"
         # "${yelanRight}"
-        "${velLeft}"
-        "${velRight}"
+        "${wallLeft}"
+        "${wallRight}"
       ];
       wallpaper = [
         "HDMI-A-1, ${main}"
         # "desc:Hewlett Packard LA1905 CNC019039F, contain:${sparkleLeft}"
         # "desc:Hewlett Packard LA1905 CNC10108WV, ${yelanRight}"
-        "desc:Hewlett Packard LA1905 CNC019039F, ${velLeft}"
-        "desc:Hewlett Packard LA1905 CNC10108WV, ${velRight}"
+        "desc:Hewlett Packard LA1905 CNC019039F, ${wallLeft}"
+        "desc:Hewlett Packard LA1905 CNC10108WV, ${wallRight}"
       ];
     };
   };

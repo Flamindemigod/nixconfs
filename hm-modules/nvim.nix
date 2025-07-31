@@ -29,6 +29,7 @@
           vim.opt.ignorecase = true
           vim.opt.updatetime = 250
           vim.opt.timeoutlen = 300
+          vim.o.clipboard = 'unnamedplus'
         '';
         filetree.nvimTree = {
           enable = true;
@@ -107,11 +108,11 @@
         undoFile.enable = true;
         syntaxHighlighting = true;
         searchCase = "smart";
-        spellcheck = {
-          enable = true;
-          languages = ["en"];
-          programmingWordlist.enable = true;
-        };
+        # spellcheck = {
+        #   enable = false;
+        #   languages = ["en"];
+        #   programmingWordlist.enable = true;
+        # };
         statusline.lualine = {
           enable = true;
         };
@@ -218,7 +219,33 @@
             lsp.enable = true;
             treesitter.enable = true;
           };
+          rust = {
+            enable=true;
+            crates.enable = true;
+            format.enable = true;
+            lsp.enable = true;
+            treesitter.enable = true;
+          };
+          svelte = {
+            enable = true;
+            extraDiagnostics.enable = true;
+            format.enable = true;
+            lsp.enable = true;
+            treesitter.enable = true;
+          };
+          ts = {
+            enable = true;
+            extraDiagnostics.enable =true;
+            format.enable = true;
+            lsp.enable = true;
+            treesitter.enable = true;
+          };
+          tailwind = {
+            enable = true;
+            lsp.enable = true;
+          };
         };
+        extraPackages = with pkgs;[ zig ];
       };
     };
   };
