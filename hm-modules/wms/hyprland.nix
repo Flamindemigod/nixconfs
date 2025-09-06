@@ -3,6 +3,9 @@
   wayland.windowManager.hyprland.xwayland.enable = true;
   wayland.windowManager.hyprland.systemd.variables = ["--all"];
   wayland.windowManager.hyprland.settings = {
+    ecosystem = {
+      no_update_news = true;
+    };
     "$mainMod" = "SUPER";
 
     monitor = [
@@ -102,7 +105,6 @@
       animate_manual_resizes = false;
       animate_mouse_windowdragging = false;
       enable_swallow = true;
-      render_ahead_of_time = false;
       disable_hyprland_logo = true;
     };
 

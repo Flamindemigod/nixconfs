@@ -2,8 +2,8 @@
   networking = {
     networkmanager.enable = true;
     firewall = {
-      allowedTCPPorts = [53317];
-      allowedUDPPorts = [39001 53317]; # Clients and peers can use the same port, see listenport
+      allowedTCPPorts = [53317 57976];
+      allowedUDPPorts = [39001 53317 57976]; # Clients and peers can use the same port, see listenport
     };
     wireless.networks = {
       TNCAP2B50D8 = {
@@ -20,22 +20,21 @@
         pskRaw = "96570be62eecd6cbe98a5508a9609fe937f31e0381b86efc5458e8500c185de8";
       };
     };
-    # wg-quick.interfaces = {
-    #   wg0 = {
-    #     address = ["10.99.99.3/32"];
-    #     dns = ["1.1.1.1" "1.0.0.1"];
-    #     privateKeyFile = "/home/flamin/.wg.priv";
-    #
-    #     peers = [
-    #       {
-    #         publicKey = "UexpnolBhlMQCulmhAQCBSWLUwFBjhpzVE3pRgWIXl0=";
-    #         presharedKeyFile = "/home/flamin/.wg.preshared";
-    #         allowedIPs = ["0.0.0.0/0"];
-    #         endpoint = "136.243.175.33:39001";
-    #         persistentKeepalive = 25;
-    #       }
-    #     ];
-    #   };
-    # };
+    wg-quick.interfaces = {
+      wg0 = {
+        address = ["10.100.0.3/24"];
+        dns = ["1.1.1.1"];
+        privateKeyFile = "/home/flamin/.wg.priv";
+
+        peers = [
+          {
+            publicKey = "TNhXw/p2GbUh2zLcMUILpuJ2lNdiI1ibhxprFeZMtEo=";
+            presharedKeyFile = "/home/flamin/.wg.preshared";
+            allowedIPs = ["0.0.0.0/0"];
+            endpoint = "server.flamindemigod.com:39001";
+          }
+        ];
+      };
+    };
   };
 }

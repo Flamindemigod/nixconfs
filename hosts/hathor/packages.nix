@@ -120,11 +120,11 @@
     libsForQt5.qtquickcontrols2
     libsForQt5.qtgraphicaleffects
 
-    #vesktop
-    (discord.override {
-      moonlight = inputs.moonlight.packages.${pkgs.system}.moonlight;
-      withMoonlight = true;
-    })
+    vesktop
+    # (discord.override {
+    #   moonlight = inputs.moonlight.packages.${pkgs.system}.moonlight;
+    #   withMoonlight = true;
+    # })
     (discord-canary.override {
       #withOpenASAR = true; # can do this here too
       #withVencord = true;

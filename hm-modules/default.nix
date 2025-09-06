@@ -1,6 +1,7 @@
 {
   imports = [
     ./cava.nix
+    ./discord.nix
     ./ckb-next.nix
     ./cursor.nix
     ./dunst.nix

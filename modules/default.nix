@@ -25,5 +25,6 @@ in {
     ./zram.nix
     ./vm.nix
     ./sunshine.nix
+    ./samba.nix
   ];
 }

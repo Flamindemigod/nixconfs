@@ -7,6 +7,7 @@
     ../../hm-modules
     inputs.matugen.nixosModules.default
     inputs.nvf.homeManagerModules.default
+    inputs.moonlight.homeModules.default
   ];
   home = {
     username = "flamin";
