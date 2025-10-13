@@ -13,6 +13,7 @@ in
       inputs.stylix.nixosModules.stylix
       inputs.home-manager.nixosModules.home-manager
       inputs.nvf.nixosModules.default
+      inputs.winboat.nixosModules.default
       ./configuration.nix
       {
         home-manager.useGlobalPkgs = true;

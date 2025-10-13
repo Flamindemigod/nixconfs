@@ -26,5 +26,6 @@ in {
     ./vm.nix
     ./sunshine.nix
     ./samba.nix
+    ./winboat.nix
   ];
 }

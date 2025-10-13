@@ -216,36 +216,37 @@
           };
           zig = {
             enable = true;
+            lsp.package = pkgs.zls_0_15;
             lsp.enable = true;
             treesitter.enable = true;
           };
-          rust = {
-            enable=true;
-            crates.enable = true;
-            format.enable = true;
-            lsp.enable = true;
-            treesitter.enable = true;
-          };
-          svelte = {
-            enable = true;
-            extraDiagnostics.enable = true;
-            format.enable = true;
-            lsp.enable = true;
-            treesitter.enable = true;
-          };
-          ts = {
-            enable = true;
-            extraDiagnostics.enable =true;
-            format.enable = true;
-            lsp.enable = true;
-            treesitter.enable = true;
-          };
-          tailwind = {
-            enable = true;
-            lsp.enable = true;
-          };
+          # rust = {
+          #   enable=true;
+          #   crates.enable = true;
+          #   format.enable = true;
+          #   lsp.enable = true;
+          #   treesitter.enable = true;
+          # };
+          # svelte = {
+          #   enable = true;
+          #   extraDiagnostics.enable = true;
+          #   format.enable = true;
+          #   lsp.enable = true;
+          #   treesitter.enable = true;
+          # };
+          # ts = {
+          #   enable = true;
+          #   extraDiagnostics.enable =true;
+          #   format.enable = true;
+          #   lsp.enable = true;
+          #   treesitter.enable = true;
+          # };
+          # tailwind = {
+          #   enable = true;
+          #   lsp.enable = true;
+          # };
         };
-        extraPackages = with pkgs;[ zig ];
+        extraPackages = with pkgs; [zig];
       };
     };
   };

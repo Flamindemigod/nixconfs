@@ -97,9 +97,6 @@
       new_status = "master";
     };
 
-    gestures = {
-      workspace_swipe = false;
-    };
 
     misc = {
       animate_manual_resizes = false;

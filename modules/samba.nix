@@ -1,6 +1,6 @@
 {
   services.samba = {
-    enabled = true;
+    enable = true;
     securityType = "user";
     openFirewall = true;
     settings = {
@@ -17,15 +17,25 @@
         "guest account" = "nobody";
         "map to guest" = "bad user";
       };
-      "private" = {
-        "path" = "/mnt/Atlas/";
+      "LAtlas" = {
+        "path" = "/mnt/LAtlas";
         "browseable" = "yes";
         "read only" = "no";
         "guest ok" = "no";
         "create mask" = "0644";
         "directory mask" = "0755";
-        "force user" = "username";
-        "force group" = "groupname";
+        "force user" = "flamin";
+        "force group" = "users";
+      };
+      "Atlas" = {
+        "path" = "/mnt/Atlas";
+        "browseable" = "yes";
+        "read only" = "no";
+        "guest ok" = "no";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+        "force user" = "flamin";
+        "force group" = "users";
       };
     };
   };

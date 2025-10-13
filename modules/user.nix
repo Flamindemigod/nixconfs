@@ -12,6 +12,7 @@
         "wheel"
         "input"
         "libvirtd"
+        "docker"
       ];
       packages = with pkgs; [];
     };

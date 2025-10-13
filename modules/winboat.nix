@@ -1,0 +1,3 @@
+{
+  services.winboat.enable = true;
+}

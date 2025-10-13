@@ -3,20 +3,16 @@
   lib,
   ...
 }: let
-
-  readSymlink =
-    path:
+  readSymlink = path:
     builtins.exec
       or (throw "builtins.exec needed for readlink, pass the following CLI flag to enable it: --option allow-unsafe-native-code-during-evaluation true")
-      [
-        "bash"
-        "-c"
-        ''
-          echo "\"$(realpath ${toString path})\""
-        ''
-      ];
-
-
+    [
+      "bash"
+      "-c"
+      ''
+        echo "\"$(realpath ${toString path})\""
+      ''
+    ];
 
   ##bgImage = ../resources/wallpapers/__herta_and_the_herta_honkai_and_1_more_drawn_by_niukou_kouzi__sample-e0de37fb0ac3173d9426c915128fdb7c.jpg;
   bgImage = /. + readSymlink ../resources/wallpapers/wallpaper;
