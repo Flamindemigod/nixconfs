@@ -1,132 +1,132 @@
-{pkgs, ...}: {
-  wayland.windowManager.hyprland.enable = true;
-  wayland.windowManager.hyprland.xwayland.enable = true;
-  wayland.windowManager.hyprland.systemd.variables = ["--all"];
-  wayland.windowManager.hyprland.settings = {
-    ecosystem = {
-      no_update_news = true;
-    };
-    "$mainMod" = "SUPER";
-
-    monitor = [
-      "HDMI-A-1, highres,0x0,1"
-      "desc:Hewlett Packard LA1905 CNC019039F,highres, -900x-200, 1, transform,3"
-      "desc:Hewlett Packard LA1905 CNC10108WV,highres,1920x0,1"
-    ];
-    workspace = [
-      "1,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
-      "2,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
-      "3,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
-      "4,default:true,monitor:HDMI-A-1"
-      "5,default:true,monitor:HDMI-A-1"
-      "6,default:true,monitor:HDMI-A-1"
-      "7,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
-      "8,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
-      "9,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
-    ];
-
-    env = [
-      "XDG_CURRENT_DESKTOP,Hyprland"
-      "XDG_SESSION_TYPE,wayland"
-      "XDG_SESSION_DESKTOP,Hyprland"
-      "XCURSOR_SIZE,24"
-      "QT_QPA_PLATFORM,wayland"
-      "XDG_SCREENSHOTS_DIR,~/screens"
-      "GTK_THEME,adw-gtk3-dark"
-    ];
-
-    debug = {
-      disable_logs = false;
-      enable_stdout_logs = true;
-    };
-
-    input = {
-      kb_layout = "gb";
-      follow_mouse = 1;
-      numlock_by_default = true;
-      touchpad = {
-        natural_scroll = false;
+  {pkgs, ...}: {
+    wayland.windowManager.hyprland.enable = true;
+    wayland.windowManager.hyprland.xwayland.enable = true;
+    wayland.windowManager.hyprland.systemd.variables = ["--all"];
+    wayland.windowManager.hyprland.settings = {
+      ecosystem = {
+        no_update_news = true;
       };
-      sensitivity = -1; # -1.0 - 1.0, 0 means no modification.
-    };
-    general = {
-      gaps_in = 5;
-      gaps_out = 20;
-      border_size = 2;
+      "$mainMod" = "SUPER";
 
-      #layout = "dwindle";
-
-      #no_cursor_warps = false;
-    };
-
-    decoration = {
-      rounding = 10;
-
-      blur = {
-        enabled = true;
-        size = 24;
-        passes = 3;
-        new_optimizations = true;
-      };
-      active_opacity = 0.9;
-      inactive_opacity = 0.7;
-    };
-
-    animations = {
-      enabled = true;
-
-      bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-      #bezier = "myBezier, 0.33, 0.82, 0.9, -0.08";
-
-      animation = [
-        "windows,     1, 7,  myBezier"
-        "windowsOut,  1, 7,  default, popin 80%"
-        "border,      1, 10, default"
-        "borderangle, 1, 8,  default"
-        "fade,        1, 7,  default"
-        "workspaces,  1, 6,  default"
+      monitor = [
+        "HDMI-A-1, highres,0x0,1"
+        "desc:Hewlett Packard LA1905 CNC019039F,highres, -900x-200, 1, transform,3"
+        "desc:Hewlett Packard LA1905 CNC10108WV,highres,1920x0,1"
       ];
-    };
+      workspace = [
+        "1,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
+        "2,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
+        "3,default:true,monitor:desc:Hewlett Packard LA1905 CNC019039F"
+        "4,default:true,monitor:HDMI-A-1"
+        "5,default:true,monitor:HDMI-A-1"
+        "6,default:true,monitor:HDMI-A-1"
+        "7,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
+        "8,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
+        "9,default:true,monitor:desc:Hewlett Packard LA1905 CNC10108WV"
+      ];
 
-    dwindle = {
-      pseudotile = true; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-      preserve_split = true; # you probably want this
-    };
+      env = [
+        "XDG_CURRENT_DESKTOP,Hyprland"
+        "XDG_SESSION_TYPE,wayland"
+        "XDG_SESSION_DESKTOP,Hyprland"
+        "XCURSOR_SIZE,24"
+        "QT_QPA_PLATFORM,wayland"
+        "XDG_SCREENSHOTS_DIR,~/screens"
+        "GTK_THEME,adw-gtk3-dark"
+      ];
 
-    master = {
-      new_status = "master";
-    };
+      debug = {
+        disable_logs = false;
+        enable_stdout_logs = true;
+      };
+
+      input = {
+        kb_layout = "gb";
+        follow_mouse = 1;
+        numlock_by_default = true;
+        touchpad = {
+          natural_scroll = false;
+        };
+        sensitivity = -1; # -1.0 - 1.0, 0 means no modification.
+      };
+      general = {
+        gaps_in = 5;
+        gaps_out = 20;
+        border_size = 2;
+
+        #layout = "dwindle";
+
+        #no_cursor_warps = false;
+      };
+
+      decoration = {
+        rounding = 10;
+
+        blur = {
+          enabled = true;
+          size = 24;
+          passes = 3;
+          new_optimizations = true;
+        };
+        active_opacity = 0.9;
+        inactive_opacity = 0.7;
+      };
+
+      animations = {
+        enabled = true;
+
+        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+        #bezier = "myBezier, 0.33, 0.82, 0.9, -0.08";
+
+        animation = [
+          "windows,     1, 7,  myBezier"
+          "windowsOut,  1, 7,  default, popin 80%"
+          "border,      1, 10, default"
+          "borderangle, 1, 8,  default"
+          "fade,        1, 7,  default"
+          "workspaces,  1, 6,  default"
+        ];
+      };
+
+      dwindle = {
+        pseudotile = true; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+        preserve_split = true; # you probably want this
+      };
+
+      master = {
+        new_status = "master";
+      };
 
 
-    misc = {
-      animate_manual_resizes = false;
-      animate_mouse_windowdragging = false;
-      enable_swallow = true;
-      disable_hyprland_logo = true;
-    };
+      misc = {
+        animate_manual_resizes = false;
+        animate_mouse_windowdragging = false;
+        enable_swallow = true;
+        disable_hyprland_logo = true;
+      };
 
-    layerrule = [
-    ];
-    windowrule = [
-      "float, title:^(Sprinator)$"
-      "size 100% 95%, title:^(Sprinator)$"
-      "center, title:^(Sprinator)$"
-      "noinitialfocus, title:^(Sprinator)$"
-      "nofocus 1, title:^(Sprinator)$"
-      "xray 1, title:^(Sprinator)$"
-      "opacity 1.0 override 1.0 override, title:^(Sprinator)$"
-      "allowsinput 0, title:^(Sprinator)$"
-      "noborder 1, title:^(Sprinator)$"
-      "noshadow 1, title:^(Sprinator)$"
-      "noblur 1, title:^(Sprinator)$"
-      "float, title:^(imv)$"
-      "float, title:^(mpv)$"
-      "float, class:^(wofi)$"
-    ];
+      layerrule = [
+      ];
+      windowrule = [
+        "float, title:^(Sprinator)$"
+        "size 100% 95%, title:^(Sprinator)$"
+        "center, title:^(Sprinator)$"
+        "noinitialfocus, title:^(Sprinator)$"
+        "nofocus 1, title:^(Sprinator)$"
+        "xray 1, title:^(Sprinator)$"
+        "opacity 1.0 override 1.0 override, title:^(Sprinator)$"
+        "allowsinput 0, title:^(Sprinator)$"
+        "noborder 1, title:^(Sprinator)$"
+        "noshadow 1, title:^(Sprinator)$"
+        "noblur 1, title:^(Sprinator)$"
+        "float, title:^(imv)$"
+        "float, title:^(mpv)$"
+        "float, class:^(wofi)$"
+      ];
 
-    exec-once = [
-      "${pkgs.waybar}/bin/waybar"
-      "${pkgs.ckb-next}/bin/ckb-next -b"
+      exec-once = [
+        "${pkgs.waybar}/bin/waybar"
+        "ckb-next -b"
       "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch cliphist store"
       "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch cliphist store"
       "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1"

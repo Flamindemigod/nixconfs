@@ -5,7 +5,6 @@
 }: {
   nixpkgs.config = {
     permittedInsecurePackages = [
-      "python-2.7.18.8"
       "electron-25.9.0"
     ];
   };
@@ -28,7 +27,7 @@
     gnumake
     gcc
     nodejs
-    python
+    python3
     (python3.withPackages (ps: with ps; [requests]))
 
     tmux
@@ -103,7 +102,9 @@
     pavucontrol
 
     #input control
-    ckb-next
+    (ckb-next.overrideAttrs (_old: {
+      buildInputs = _old.buildInputs ++ [ inputs.nixpkgs-stable.legacyPackages.x86_64-linux.libsForQt5.libdbusmenu ];
+    }))
 
     # GPU stuff
     #amdvlk
