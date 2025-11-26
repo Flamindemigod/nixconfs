@@ -5,6 +5,7 @@
     wayland.windowManager.hyprland.settings = {
       ecosystem = {
         no_update_news = true;
+        no_donation_nag = true;
       };
       "$mainMod" = "SUPER";
 
@@ -37,11 +38,12 @@
 
       debug = {
         disable_logs = false;
-        enable_stdout_logs = true;
+        enable_stdout_logs = false;
       };
 
       input = {
         kb_layout = "gb";
+        kb_options = "caps:swapescape";
         follow_mouse = 1;
         numlock_by_default = true;
         touchpad = {
@@ -103,6 +105,7 @@
         animate_mouse_windowdragging = false;
         enable_swallow = true;
         disable_hyprland_logo = true;
+        enable_anr_dialog = false;
       };
 
       layerrule = [

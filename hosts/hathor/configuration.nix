@@ -19,6 +19,9 @@ in {
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_17;
   boot.initrd.kernelModules = ["amdgpu"];
   boot.kernelParams = [
+    "video=HDMI-A-1:1920x1080@60"
+    "video=DP-1:1440x900@60"
+    "video=DP-3:1440x900@60"
     "iommu=pt"
     "intel_iommu=on"
     "pcie_acs_override=downstream,multifunction"
@@ -70,4 +73,13 @@ in {
       }
     });
   '';
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.hyprland}/bin/Hyprland";
+        user="flamin";
+      };
+    };
+  };
 }

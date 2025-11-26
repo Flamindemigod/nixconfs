@@ -13,7 +13,6 @@ in {
     ./hyprland.nix
     ./input.nix
     ./nm.nix
-    ./sddm.nix
     ./ssh.nix
     ./steam.nix
     ./font.nix
