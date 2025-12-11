@@ -8,6 +8,7 @@
     (callPackage ../../pkgs/OkBob.nix {})
     (callPackage ../../pkgs/lsfg-ui.nix {})
     (callPackage ../../pkgs/lsfg-vk.nix {})
+    (callPackage ../../pkgs/ckb-next.nix {})
     inputs.matugen.packages.${system}.default
     localsend
     nixfmt-rfc-style
@@ -95,11 +96,6 @@
     pulseaudio
     pamixer
     pavucontrol
-
-    #input control
-    (ckb-next.overrideAttrs (_old: {
-      buildInputs = _old.buildInputs ++ [ inputs.nixpkgs-stable.legacyPackages.x86_64-linux.libsForQt5.libdbusmenu ];
-    }))
 
     # GPU stuff
     #amdvlk

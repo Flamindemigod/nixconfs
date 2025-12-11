@@ -1,8 +1,6 @@
-{pkgs, inputs, ...}: {
+{pkgs, ...}: {
   hardware.ckb-next.enable = true;
-  hardware.ckb-next.package = pkgs.ckb-next.overrideAttrs (_old: {
-      buildInputs = _old.buildInputs ++ [ inputs.nixpkgs-stable.legacyPackages.x86_64-linux.libsForQt5.libdbusmenu ];
-    });
+  hardware.ckb-next.package = (pkgs.callPackage ../pkgs/ckb-next.nix {});
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
 
