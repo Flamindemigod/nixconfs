@@ -26,10 +26,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf.url = "github:notashelf/nvf";
-    winboat = { 
-      url = "github:Rexcrazy804/winboat?ref=fix-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     moonlight = {
       url = "github:moonlight-mod/moonlight/develop"; # Add `/develop` to the flake URL to use nightly.
       inputs.nixpkgs.follows = "nixpkgs";

@@ -55,7 +55,7 @@
     bluez
     bluez-tools
     ripgrep
-    du-dust
+    dust
 
     # GUI utils
     feh
@@ -142,7 +142,7 @@
     fira-code
     jetbrains-mono
     noto-fonts
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     twemoji-color-font
     font-awesome
     powerline-fonts
