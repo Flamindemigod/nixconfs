@@ -1,12 +1,12 @@
-{ config, lib, pkgs, ... }:
+{ inputs, config, lib, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/wms/niri.nix
+      ./modules/dms.nix
     ];
-
   boot.loader.systemd-boot.enable = true;
   nix.settings.experimental-features = ["flakes"];  
 
@@ -39,7 +39,8 @@
   	packages = with pkgs; [
     		kitty
 		mpv
-		swaybg	
+		swaybg
+		brave	
 	];
   };
 
