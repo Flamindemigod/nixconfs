@@ -4,6 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/wms/niri.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -22,12 +23,6 @@
     keyMap = "uk";
   };
 
-  services.displayManager.cosmic-greeter.enable = true;
-  services.desktopManager.cosmic.enable = true;
-
-  environment.cosmic.excludePackages = with pkgs; [
-	cosmic-edit #We gots vim
-  ];
 
   services.pipewire = {
     enable = true;
@@ -48,18 +43,11 @@
 	];
   };
 
-  environment.pathsToLink = [
-	"/share/backgrounds/cosmic"
-	"/share/cosmic/"  
-  ];
-
   environment.systemPackages = with pkgs; [
       		vim
 		wget
 		git
 		tmux
-		cosmic-bg
-		cosmic-wallpapers
   ];
 
   # Enable the OpenSSH daemon.
