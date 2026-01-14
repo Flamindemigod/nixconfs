@@ -17,8 +17,6 @@ in {
     user = "flamin";
     rum.desktops.niri =
       {
-        enable = true;
-        package = null;
         config = ''
           	include "dms/colors.kdl"
           	include "dms/cursor.kdl"

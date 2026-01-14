@@ -4,6 +4,8 @@
   config,
   ...
 }: {
+  enable = true;
+  package = null;
   spawn-at-startup =
     [
     ]
