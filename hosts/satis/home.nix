@@ -29,7 +29,7 @@ in {
         	include "dms/outputs.kdl"
         	include "dms/wpblur.kdl"
         	include "dms/alttab.kdl"
-        	   prefer-no-csd
+        	prefer-no-csd
         	input {
         		keyboard {
         			xkb {
