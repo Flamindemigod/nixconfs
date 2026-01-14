@@ -1,14 +1,24 @@
-{ inputs, config, lib, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./modules/wms/niri.nix
-      ./modules/dms.nix
-    ];
+  inputs,
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    #Nixos Modules
+    ./modules/wms/niri.nix
+    ./modules/dms.nix
+    #Hjem Modules
+    ./modules/home.nix
+  ];
   boot.loader.systemd-boot.enable = true;
-  nix.settings.experimental-features = ["flakes"];  
+  nix.settings.experimental-features = [
+    "flakes"
+    "nix-command"
+  ];
 
   networking.hostName = "satis"; # Define your hostname.
 
@@ -23,7 +33,6 @@
     keyMap = "uk";
   };
 
-
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -34,21 +43,21 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.flamin = {
-  	isNormalUser = true;
-  	extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  	packages = with pkgs; [
-    		kitty
-		mpv
-		swaybg
-		brave	
-	];
+    isNormalUser = true;
+    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
+    packages = with pkgs; [
+      kitty
+      mpv
+      swaybg
+      brave
+    ];
   };
 
   environment.systemPackages = with pkgs; [
-      		vim
-		wget
-		git
-		tmux
+    vim
+    wget
+    git
+    tmux
   ];
 
   # Enable the OpenSSH daemon.
@@ -60,7 +69,5 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  system.stateVersion = "25.11"; #Never Change This!! 
-
+  system.stateVersion = "25.11"; #Never Change This!!
 }
-

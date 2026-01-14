@@ -3,6 +3,6 @@
   services.desktopManager.cosmic.enable = true;
 
   environment.cosmic.excludePackages = with pkgs; [
-	cosmic-edit #We gots vim
+    cosmic-edit #We gots vim
   ];
 }
