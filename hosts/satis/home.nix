@@ -10,6 +10,7 @@
   git = import ../../hjem-modules/git.nix {inherit pkgs;};
   keepassxc = import ../../hjem-modules/keepassxc.nix;
   kitty = import ../../hjem-modules/kitty.nix;
+  mpv = import ../../hjem-modules/mpv.nix {inherit pkgs;};
 in {
   imports = [
     ../../hjem-modules/core.nix
@@ -73,6 +74,7 @@ in {
       };
       keepassxc = keepassxc;
       kitty = kitty;
+      mpv = mpv;
     };
   };
 }
