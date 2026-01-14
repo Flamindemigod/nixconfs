@@ -7,6 +7,7 @@
   ...
 }: let
   niri = import ../../hjem-modules/niri.nix {inherit pkgs lib options config;};
+  git = import ../../hjem-modules/git.nix {inherit pkgs;};
 in {
   imports = [
     ../../hjem-modules/core.nix
@@ -62,5 +63,14 @@ in {
         '';
       }
       // niri;
+    rum.programs = {
+      git = lib.recursiveUpdate git {
+        settings.user = {
+          name = "Flamindemigod";
+          email = "flamin@flamindemigod.com";
+          #TODO Add Signing Key
+        };
+      };
+    };
   };
 }
