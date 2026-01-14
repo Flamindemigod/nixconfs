@@ -13,6 +13,7 @@ in {
     ../../modules/core.nix
     ../../modules/wms/niri.nix
     ../../modules/dms.nix
+    ./home.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
