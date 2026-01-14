@@ -18,36 +18,37 @@
           ["dms" "run"]
         ];
         config = ''
-          	input {
-          		keyboard {
-          			xkb {
-          				layout "gb"
-          			}
-          			numlock
-          		}
-          		touchpad {
-          			tap
-          			natural-scroll
-          			scroll-method "two-finger"
-          		}
-          		warp-mouse-to-focus
-          		focus-follows-mouse
-          	}
-          	hotkey-overlay {
-          		skip-at-startup
-          	}
-          	//For Vel only
-          	screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+               	input {
+               		keyboard {
+               			xkb {
+               				layout "gb"
+          options "caps:swapescape"
+               			}
+               			numlock
+               		}
+               		touchpad {
+               			tap
+               			natural-scroll
+               			scroll-method "two-finger"
+               		}
+               		warp-mouse-to-focus
+               		focus-follows-mouse
+               	}
+               	hotkey-overlay {
+               		skip-at-startup
+               	}
+               	//For Vel only
+               	screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-          window-rule {
-          	match app-id=r#"^org\.keepassxcc\.KeePassXC$"#
-          	block-out-from "screen-capture"
-          }
+               window-rule {
+               	match app-id=r#"^org\.keepassxcc\.KeePassXC$"#
+               	block-out-from "screen-capture"
+               }
 
-          window-rule {
-          	geometry-corner-radius 12
-          	clip-to-geometry true
-          }
+               window-rule {
+               	geometry-corner-radius 12
+               	clip-to-geometry true
+               }
         '';
         binds = {
           "MOD+SHIFT+SLASH" = {
