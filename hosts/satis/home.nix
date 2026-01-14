@@ -12,6 +12,7 @@
   kitty = import ../../hjem-modules/kitty.nix;
   mpv = import ../../hjem-modules/mpv.nix {inherit pkgs;};
   obs = import ../../hjem-modules/obs.nix {inherit pkgs;};
+  yazi = import ../../hjem-modules/yazi.nix;
 in {
   imports = [
     ../../hjem-modules/core.nix
@@ -77,6 +78,7 @@ in {
       kitty = kitty;
       mpv = mpv;
       #obs-studio = obs;
+      yazi = yazi;
     };
   };
 }
