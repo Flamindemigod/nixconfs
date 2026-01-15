@@ -8,7 +8,7 @@
 [ ] hsr launcher
 [ ] steam
 [x] ssh
-[ ] tmux
+[x] tmux
 [ ] NetworkManager
 [x] Fonts
 [ ] Flatpak
