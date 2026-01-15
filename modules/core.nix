@@ -7,7 +7,6 @@
     "flakes"
     "nix-command"
   ];
-  networking.networkmanager.enable = true;
   console = {
     font = "Lat2-Terminus32";
     keyMap = "uk";
