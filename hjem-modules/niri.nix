@@ -9,7 +9,8 @@
   spawn-at-startup =
     [
     ]
-    ++ [(lib.mkIf config.programs.dank-material-shell.enable ["dms" "run"])];
+    ++ [(lib.mkIf config.programs.dank-material-shell.enable ["dms" "run"])]
+    ++ [(lib.mkIf config.programs.noisetorch.enable ["noisetorch" "-i"])];
   binds = {
     "MOD+SHIFT+SLASH" = {
       action = "show-hotkey-overlay";

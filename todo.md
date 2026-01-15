@@ -1,4 +1,4 @@
-[ ] Add Env Vars
+[x] Add Env Vars
 	- EDITOR
 [x] Ripgrep 
 [x] fd (find replacement) 
@@ -13,7 +13,7 @@
 [x] Fonts
 [ ] Flatpak
 [ ] Bluetooth
-[ ] Noisetorch
-[ ] Appimage
+[x] Noisetorch
+[x] Appimage
 [-] MangoHud (Installed but not setup)
 

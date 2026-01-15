@@ -17,7 +17,7 @@
     pulse.enable = true;
   };
   services.libinput.enable = true;
-
+  programs.noisetorch.enable = true;
   environment.systemPackages = with pkgs; [
     kitty
     vim
@@ -34,11 +34,16 @@
 
   services.openssh.enable = true;
   nixpkgs.config.allowUnfree = true;
-  environment.sessionVariables = {
-    XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_CACHE_HOME = "$HOME/.cache";
-    XDG_DATA_HOME = "$HOME/.local/share";
-    XDG_STATE_HOME = "$HOME/.local/state";
+  environment = {
+    variables = {
+      EDITOR = "vim";
+    };
+    sessionVariables = {
+      XDG_CONFIG_HOME = "$HOME/.config";
+      XDG_CACHE_HOME = "$HOME/.cache";
+      XDG_DATA_HOME = "$HOME/.local/share";
+      XDG_STATE_HOME = "$HOME/.local/state";
+    };
   };
 
   nix.gc = {

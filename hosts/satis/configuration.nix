@@ -12,6 +12,7 @@ in {
     ./hardware-configuration.nix
     ../../modules/core.nix
     ../../modules/fonts.nix
+    ../../modules/appimage.nix
     ../../modules/wms/niri.nix
     ../../modules/dms.nix
     ../../modules/zsh.nix
