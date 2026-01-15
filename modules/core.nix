@@ -24,6 +24,12 @@
     wget
     git
     tmux
+    fd
+    ripgrep
+    parted
+    zip
+    unzip
+    p7zip
   ];
 
   services.openssh.enable = true;
