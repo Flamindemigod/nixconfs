@@ -32,7 +32,6 @@
     p7zip
   ];
 
-  services.openssh.enable = true;
   nixpkgs.config.allowUnfree = true;
   environment = {
     variables = {

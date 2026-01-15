@@ -11,6 +11,7 @@ in {
   imports = [
     ./hardware-configuration.nix
     ../../modules/core.nix
+    ../../modules/ssh.nix
     ../../modules/fonts.nix
     ../../modules/appimage.nix
     ../../modules/wms/niri.nix

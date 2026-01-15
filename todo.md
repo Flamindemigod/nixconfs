@@ -7,7 +7,7 @@
 [ ] spicetify
 [ ] hsr launcher
 [ ] steam
-[ ] ssh
+[x] ssh
 [ ] tmux
 [ ] NetworkManager
 [x] Fonts
