@@ -17,7 +17,7 @@
           autoload -Uz add-zsh-hook
 
           function auto_ls() {
-      ${pkgs.eza}/bin/eza -1 --group-directories-first --color=always --git-ignore
+			${pkgs.eza}/bin/eza -1 --group-directories-first --color=always --git-ignore
           }
 
           function auto_nix() {
@@ -64,7 +64,7 @@
     };
     ohMyZsh = {
       enable = true;
-      plugins = ["git" "sudo"];
+      plugins = ["git"];
       theme = "agnoster";
     };
   };
