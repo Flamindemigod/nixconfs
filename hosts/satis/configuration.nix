@@ -17,6 +17,7 @@ in {
     ../../modules/wms/niri.nix
     ../../modules/dms.nix
     ../../modules/zsh.nix
+    ../../modules/tmux.nix
     ./home.nix
   ];
 

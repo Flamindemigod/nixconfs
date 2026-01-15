@@ -1,0 +1,49 @@
+{pkgs, ...}: {
+  programs.tmux = {
+    enable = true;
+    keyMode = "vi";
+    newSession = false;
+    terminal = "st-256color";
+    extraConfig = ''
+      set -g mouse on
+      set -g default-shell $SHELL
+      set -gq allow-passthrough on
+      set -g visual-activity off
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+      bind '"' split-window -v -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
+    '';
+    extraConfigBeforePlugins = ''
+      set -g @rose_pine_variant 'main'
+      set -g @rose_pine_date_time "%a %d/%m/%C"
+      set -g @rose_pine_directory "on"
+      set -g @rose_pine_user "off"
+      set -g @rose_pine_disable_active_window_menu 'on'
+      set -g @rose_pine_left_separator '  '
+      set -g @rose_pine_right_separator '  '
+      set -g @rose_pine_field_separator '󰇝'
+      set -g @rose_pine_window_separator '󰇝'
+      set -g @rose_pine_session_icon ''
+      set -g @rose_pine_current_window_icon ''
+      set -g @rose_pine_folder_icon '󰉋'
+      set -g @rose_pine_username_icon ''
+      set -g @rose_pine_window_status_separator "  "
+      set -g @rose_pine_prioritize_windows 'off'
+      set -g @rose_pine_width_to_hide '80'
+      set -g @rose_pine_window_count '5'
+      set -g @rose_pine_status_left_prepend_section ''
+
+      set -g @resurrect-strategy-nvim 'session'
+      set -g @resurrect-save 'S'
+      set -g @resurrect-restore 'F'
+    '';
+    plugins = with pkgs; [
+      tmuxPlugins.sensible
+      tmuxPlugins.rose-pine
+      tmuxPlugins.resurrect
+      tmuxPlugins.yank
+    ];
+  };
+}
