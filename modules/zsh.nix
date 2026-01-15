@@ -17,7 +17,7 @@
       autoload -Uz add-zsh-hook
 
       function auto_ls() {
-        ls
+		${pkgs.eza}/bin/eza -1 --group-directories-first --color=always --git-ignore
       }
 
       function auto_nix() {
@@ -47,7 +47,7 @@
     shellAliases = let
       flakeDir = "~/.nix";
     in {
-	  ls="${pkgs.eza}/bin/eza -1A --group-directories-first --color=always --git-ignore";
+	  ls="${pkgs.eza}/bin/eza -1 --group-directories-first --color=always --git-ignore";
 	  ll=''ls -l --time-style="+%Y-%m-%d %H:%M"'';
       v = "$EDITOR";
       se = "sudoedit";
