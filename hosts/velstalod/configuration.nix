@@ -20,6 +20,7 @@ in {
     ../../modules/dms.nix
     ../../modules/zsh.nix
     ../../modules/tmux.nix
+    ../../modules/flatpak.nix
     ./home.nix
   ];
 
