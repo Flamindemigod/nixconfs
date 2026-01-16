@@ -11,7 +11,7 @@
 [x] ssh
 [x] tmux
 [x] Fonts
-[ ] Flatpak
+[x] Flatpak
 [x] Bluetooth
 [x] Noisetorch
 [x] Appimage
