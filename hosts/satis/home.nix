@@ -21,7 +21,7 @@ in {
     enable = true;
     directory = "/home/flamin";
     user = "flamin";
-    
+
     rum.desktops.niri = lib.recursiveUpdate niri {
       config = ''
         	include "dms/colors.kdl"

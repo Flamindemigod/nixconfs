@@ -26,7 +26,7 @@ in {
   boot.loader.systemd-boot.enable = true;
   time.timeZone = "Asia/Kolkata";
   i18n.defaultLocale = "en_IN";
-  
+
   users.users.velvy = {
     isNormalUser = true;
     extraGroups = ["wheel"];
