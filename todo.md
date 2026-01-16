@@ -7,12 +7,12 @@
 [ ] nvim
 [ ] spicetify
 [ ] hsr launcher
-[ ] steam
+[x] steam
 [x] ssh
 [x] tmux
 [x] Fonts
 [ ] Flatpak
-[ ] Bluetooth
+[x] Bluetooth
 [x] Noisetorch
 [x] Appimage
 [-] MangoHud (Installed but not setup)

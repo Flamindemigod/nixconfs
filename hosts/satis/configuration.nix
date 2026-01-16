@@ -20,6 +20,7 @@ in {
     ../../modules/dms.nix
     ../../modules/zsh.nix
     ../../modules/tmux.nix
+    ../../modules/steam.nix
     ./home.nix
   ];
 
