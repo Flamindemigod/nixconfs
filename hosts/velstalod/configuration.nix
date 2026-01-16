@@ -12,6 +12,7 @@ in {
     ./hardware-configuration.nix
     ../../modules/core.nix
     ../../modules/networking.nix
+    ../../modules/bluetooth.nix
     ../../modules/ssh.nix
     ../../modules/fonts.nix
     ../../modules/appimage.nix
@@ -24,7 +25,7 @@ in {
 
   boot.loader.systemd-boot.enable = true;
   time.timeZone = "Asia/Kolkata";
-  i18n.defaultLocale = "en_IN.UTF-8";
+  i18n.defaultLocale = "en_IN";
   
   users.users.velvy = {
     isNormalUser = true;

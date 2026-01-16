@@ -31,7 +31,7 @@ in {
         	input {
         		keyboard {
         			xkb {
-        				layout "in"
+        				layout "us"
         			}
         			numlock
         		}
