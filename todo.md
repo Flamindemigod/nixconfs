@@ -4,12 +4,12 @@
 [x] fd (find replacement) 
 [x] discord
 [x] prismlauncher
+[ ] nvim
 [ ] spicetify
 [ ] hsr launcher
 [ ] steam
 [x] ssh
 [x] tmux
-[ ] NetworkManager
 [x] Fonts
 [ ] Flatpak
 [ ] Bluetooth
