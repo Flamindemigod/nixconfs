@@ -21,6 +21,7 @@ in {
     ../../modules/zsh.nix
     ../../modules/tmux.nix
     ../../modules/steam.nix
+    ../../modules/flatpak.nix
     ./home.nix
   ];
 
