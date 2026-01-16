@@ -5,8 +5,8 @@
 [x] discord
 [x] prismlauncher
 [ ] nvim
-[ ] spicetify
-[ ] hsr launcher
+[x] spicetify
+[x] hsr launcher
 [x] steam
 [x] ssh
 [x] tmux

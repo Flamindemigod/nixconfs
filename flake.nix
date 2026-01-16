@@ -10,6 +10,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hjem.follows = "hjem-rum/hjem";
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+    spicetify.url = "github:Gerg-L/spicetify-nix";
   };
   outputs = {
     self,
