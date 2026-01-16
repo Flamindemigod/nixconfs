@@ -4,9 +4,9 @@ with pkgs; [
   feh
   mpv
   brave
-  #equibop #Modified Vesktop Client
-  #prismlauncher
-  #discord # Alternative Client for second account
+  equibop #Modified Vesktop Client
+  prismlauncher
+  discord # Alternative Client for second account
   pavucontrol
   mangohud
   ffmpeg
