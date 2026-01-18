@@ -30,7 +30,7 @@ in {
 
   users.users.velvy = {
     isNormalUser = true;
-    extraGroups = ["wheel"];
+    extraGroups = ["wheel" "networkmanager"];
     packages = pkgList;
   };
 
