@@ -24,7 +24,8 @@ in {
     ../../modules/flatpak.nix
     ./home.nix
   ];
-
+  powerManagement.enable = true;
+  services.upower.enable = true;
   boot.loader.systemd-boot.enable = true;
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";

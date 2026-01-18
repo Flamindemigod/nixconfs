@@ -24,47 +24,51 @@ in {
 
     rum.desktops.niri = lib.recursiveUpdate niri {
       config = ''
-        	include "dms/colors.kdl"
-        	include "dms/cursor.kdl"
-        	include "dms/layout.kdl"
-        	include "dms/outputs.kdl"
-        	include "dms/wpblur.kdl"
-        	include "dms/alttab.kdl"
-        	prefer-no-csd
-        	input {
-        		keyboard {
-        			xkb {
-        				layout "gb"
-        				options "caps:swapescape"
-        			}
-        			numlock
-        		}
-        		touchpad {
-        			tap
-        			natural-scroll
-        			scroll-method "two-finger"
-        		}
-        		focus-follows-mouse max-scroll-amount="0%"
-        		warp-mouse-to-focus
-        	   }
-        	   hotkey-overlay {
-        		skip-at-startup
-        	   }
-        	   //For Vel only
-        	   screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+               	include "dms/colors.kdl"
+               	include "dms/cursor.kdl"
+               	include "dms/layout.kdl"
+               	include "dms/outputs.kdl"
+               	include "dms/wpblur.kdl"
+               	include "dms/alttab.kdl"
+               	prefer-no-csd
+               	input {
+               		keyboard {
+               			xkb {
+               				layout "gb"
+               				options "caps:swapescape"
+               			}
+               			numlock
+               		}
+               		touchpad {
+               			tap
+               			natural-scroll
+               			scroll-method "two-finger"
+               		}
+               		focus-follows-mouse max-scroll-amount="0%"
+               		warp-mouse-to-focus
+               	   }
+               	   hotkey-overlay {
+               		skip-at-startup
+               	   }
+               	   //For Vel only
+               	   screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-        	   window-rule {
-        	   match app-id=r#"^org\.keepassxcc\.KeePassXC$"#
-        	   block-out-from "screen-capture"
-        	   }
+               	   window-rule {
+               	   match app-id=r#"^org\.keepassxcc\.KeePassXC$"#
+               	   block-out-from "screen-capture"
+               	   }
 
-        	   window-rule {
-        	   geometry-corner-radius 12
-        	   clip-to-geometry true
-        	 }
-        layout {
-        	gaps 8
+               	   window-rule {
+               	   geometry-corner-radius 12
+               	   clip-to-geometry true
+               	 }
+        window-rule {
+            match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+            default-floating-position x=10 y=10 relative-to="bottom-right"
         }
+               layout {
+               	gaps 8
+               }
       '';
     };
     rum.programs = {
@@ -78,7 +82,7 @@ in {
       keepassxc = keepassxc;
       kitty = kitty;
       mpv = mpv;
-      #obs-studio = obs;
+      obs-studio = obs;
       yazi = yazi;
     };
   };
