@@ -84,7 +84,7 @@ in {
       };
       kitty = kitty;
       mpv = mpv;
-      #obs-studio = obs;
+      obs-studio = obs;
     };
   };
 }
