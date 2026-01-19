@@ -11,10 +11,8 @@ in
       discord # Alternative Client for second account
       pavucontrol
       mediainfo
-      scrcpy
       kdePackages.dolphin
       kdePackages.dolphin-plugins
       android-tools
-      blockbench
     ]
     ++ [scrcpy]
