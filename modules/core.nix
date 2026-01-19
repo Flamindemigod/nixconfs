@@ -11,8 +11,8 @@
     font = "Lat2-Terminus32";
     keyMap = "uk";
   };
- security.rtkit.enable = true; 
- services.pipewire = {
+  security.rtkit.enable = true;
+  services.pipewire = {
     enable = true;
     pulse.enable = true;
   };
@@ -42,7 +42,7 @@
       XDG_CACHE_HOME = "$HOME/.cache";
       XDG_DATA_HOME = "$HOME/.local/share";
       XDG_STATE_HOME = "$HOME/.local/state";
-      GDK_BACKEND="wayland";	
+      GDK_BACKEND = "wayland";
     };
   };
 
