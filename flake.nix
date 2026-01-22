@@ -1,6 +1,7 @@
 {
   description = "Flamin & Vel's System Configs";
   inputs = {
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     niri.url = "github:sodiboo/niri-flake";
     dms.url = "github:AvengeMedia/DankMaterialShell/stable";
