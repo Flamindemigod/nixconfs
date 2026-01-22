@@ -13,6 +13,7 @@
   mpv = import ../../hjem-modules/mpv.nix {inherit pkgs;};
   obs = import ../../hjem-modules/obs.nix {inherit pkgs;};
   yazi = import ../../hjem-modules/yazi.nix;
+  vim = import ../../hjem-modules/vim.nix;
 in {
   imports = [
     ../../hjem-modules/core.nix
@@ -21,7 +22,7 @@ in {
     enable = true;
     directory = "/home/flamin";
     user = "flamin";
-
+    files = {} // vim;
     rum.desktops.niri = lib.recursiveUpdate niri {
       config = ''
         include "dms/colors.kdl"
