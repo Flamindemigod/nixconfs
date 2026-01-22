@@ -14,5 +14,6 @@ in
       mangohud
       ffmpeg
       mediainfo
+      thunderbird
     ]
     ++ [scrcpy]
