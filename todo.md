@@ -16,4 +16,5 @@
 [x] Noisetorch
 [x] Appimage
 [-] MangoHud (Installed but not setup)
-
+[ ] nixos-hardware
+[ ] sops-nix
