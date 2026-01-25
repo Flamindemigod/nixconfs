@@ -11,6 +11,7 @@ in {
   imports = [
     ./hardware-configuration.nix
     ../../modules/core.nix
+    ../../modules/sops.nix
     ../../modules/bluetooth.nix
     ../../modules/networking.nix
     ../../modules/ssh.nix
@@ -24,15 +25,21 @@ in {
     ../../modules/flatpak.nix
     ./home.nix
   ];
+
   powerManagement.enable = true;
   services.upower.enable = true;
+
   boot.loader.systemd-boot.enable = true;
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
 
+  sops.secrets."flamin/password".neededForUsers = true;
+  users.mutableUsers = false;
+
   users.users.flamin = {
     isNormalUser = true;
-    extraGroups = ["wheel"];
+    hashedPasswordFile = config.sops.secrets."flamin/password".path;
+    extraGroups = ["wheel" "networkmanager"];
     packages = pkgList;
   };
 }
