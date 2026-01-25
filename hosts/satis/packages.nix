@@ -15,5 +15,6 @@ in
       ffmpeg
       mediainfo
       thunderbird
+      bitwarden-desktop
     ]
     ++ [scrcpy]

@@ -30,6 +30,7 @@
     zip
     unzip
     p7zip
+    wl-clipboard
   ];
 
   nixpkgs.config.allowUnfree = true;
