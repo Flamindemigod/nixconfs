@@ -27,7 +27,7 @@
       // lib.mkIf (builtins.hasAttr "velvy" config.users.users) {
         "velvy/ssh-key" = {
           owner = "velvy";
-          path = "/home/flamin/.ssh/id_ed25519";
+          path = "/home/velvy/.ssh/id_ed25519";
         };
       };
   };
