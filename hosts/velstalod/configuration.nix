@@ -22,6 +22,7 @@ in {
     ../../modules/zsh.nix
     ../../modules/tmux.nix
     ../../modules/flatpak.nix
+    ../../modules/steam.nix
     ./home.nix
   ];
 
