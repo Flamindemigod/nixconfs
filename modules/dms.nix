@@ -6,9 +6,14 @@
 }: {
   programs.dank-material-shell = {
     enable = true;
-    plugins = {
-      mediaPlayer.enable = true;
+    systemd = {
+      enable = true;
+      restartIfChanged = true;
     };
+    enableSystemMonitoring = true;
+    enableVPN = true;
+    enableAudioWavelength = true;
+    enableCalendarEvents = true;
   };
   environment.systemPackages = with pkgs; [
     libsForQt5.qt5ct

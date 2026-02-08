@@ -33,48 +33,49 @@ in {
         include "dms/alttab.kdl"
         prefer-no-csd
         input {
-        	keyboard {
-        		xkb {
-        			layout "gb"
-        			options "caps:swapescape"
-        		}
-        		numlock
-        	}
-        	touchpad {
-        		tap
-        		natural-scroll
-        		scroll-method "two-finger"
-        	}
-        	focus-follows-mouse max-scroll-amount="0%"
-        	warp-mouse-to-focus
-           }
+          keyboard {
+            xkb {
+              layout "gb"
+              options "caps:swapescape"
+            }
+            numlock
+          }
+          touchpad {
+            tap
+            natural-scroll
+            scroll-method "two-finger"
+          }
+          focus-follows-mouse max-scroll-amount="0%"
+          warp-mouse-to-focus
+        }
         hotkey-overlay {
-        	skip-at-startup
+          skip-at-startup
         }
         window-rule {
-        	match app-id=r#"^org\.keepassxcc\.KeePassXC$"#
-        	block-out-from "screen-capture"
+          match app-id=r#"^org\.keepassxcc\.KeePassXC$"#
+          block-out-from "screen-capture"
         }
 
         window-rule {
-        	geometry-corner-radius 12
-        	clip-to-geometry true
+          geometry-corner-radius 12
+          clip-to-geometry true
         }
         window-rule {
-        	match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
-        	default-floating-position x=10 y=10 relative-to="bottom-right"
+          match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+          default-floating-position x=10 y=10 relative-to="bottom-right"
+          open-focused false
         }
         window-rule {
-        	match app-id=".scrcpy-wrapped"
-        	open-floating true
-        	default-floating-position x=25 y=25 relative-to="bottom-right"
-        	min-width 200
-        	min-height 200
-        	default-window-height { proportion 0.3; }
-        	default-column-width { proportion 0.4; }
+          match app-id=".scrcpy-wrapped"
+          open-floating true
+          default-floating-position x=25 y=25 relative-to="bottom-right"
+          min-width 200
+          min-height 200
+          default-window-height { proportion 0.3; }
+          default-column-width { proportion 0.4; }
         }
         layout {
-        	gaps 8
+          gaps 8
         }
       '';
     };
