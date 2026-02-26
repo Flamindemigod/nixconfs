@@ -93,12 +93,12 @@
       action = "close-window";
     };
     "MOD+LEFT" = {action = "focus-column-left";};
-    "MOD+DOWN" = {action = "focus-window-down";};
-    "MOD+UP" = {action = "focus-window-up";};
+    "MOD+UP" = {action = "focus-window-up-or-workspace-up";};
+    "MOD+DOWN" = {action = "focus-window-down-or-workspace-down";};
     "MOD+RIGHT" = {action = "focus-column-right";};
     "MOD+SHIFT+LEFT" = {action = "move-column-left";};
-    "MOD+SHIFT+DOWN" = {action = "move-window-down";};
-    "MOD+SHIFT+UP" = {action = "move-window-up";};
+    "MOD+SHIFT+DOWN" = {action = "move-window-down-or-to-workspace-down";};
+    "MOD+SHIFT+UP" = {action = "move-window-up-or-to-workspace-up";};
     "MOD+SHIFT+RIGHT" = {action = "move-column-right";};
     "MOD+WHEELSCROLLDOWN" = {
       parameters.cooldown-ms = 150;
