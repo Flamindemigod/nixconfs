@@ -31,6 +31,7 @@
     unzip
     p7zip
     wl-clipboard
+    i2c-tools
   ];
 
   nixpkgs.config.allowUnfree = true;

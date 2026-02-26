@@ -26,9 +26,6 @@ in {
     ./home.nix
   ];
 
-  powerManagement.enable = true;
-  services.upower.enable = true;
-
   boot.loader.systemd-boot.enable = true;
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -39,7 +36,7 @@ in {
   users.users.flamin = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets."flamin/password".path;
-    extraGroups = ["wheel" "networkmanager"];
+    extraGroups = ["wheel" "networkmanager" "i2c"];
     packages = pkgList;
   };
 }

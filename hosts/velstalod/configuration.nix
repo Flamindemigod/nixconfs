@@ -37,7 +37,7 @@ in {
   users.users.velvy = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets."velvy/password".path;
-    extraGroups = ["wheel" "networkmanager"];
+    extraGroups = ["wheel" "networkmanager" "i2c"];
     packages = pkgList;
   };
 
