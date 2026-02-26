@@ -4,6 +4,7 @@ keys:
 - &hosts:
   - &satis age1wltghmj30xjw9e5vcsncwksz8fmmnjlctt0hgjh02vhr5xsctgrquv2zlq
   - &vestalod age1tjrhtpuwlnkzddj0872xulrtzt0efr2atpf6gnl0q38q5k6gyces5vgqnz
+  - &hathor age1wpp7q5vhywcj0yq33t883qsg76mk7a69y9vut4rxkzfg5zxyea2s5j4mms
 creation_rules:
 - path_regex: secrets.yaml$
   key_groups:
@@ -11,3 +12,4 @@ creation_rules:
       - *flamin
       - *satis
       - *vestalod
+      - *hathor
