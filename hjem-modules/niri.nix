@@ -93,8 +93,8 @@
       action = "close-window";
     };
     "MOD+LEFT" = {action = "focus-column-left";};
-    "MOD+UP" = {action = "focus-window-up-or-workspace-up";};
-    "MOD+DOWN" = {action = "focus-window-down-or-workspace-down";};
+    "MOD+UP" = {action = "focus-window-or-workspace-up";};
+    "MOD+DOWN" = {action = "focus-window-or-workspace-down";};
     "MOD+RIGHT" = {action = "focus-column-right";};
     "MOD+SHIFT+LEFT" = {action = "move-column-left";};
     "MOD+SHIFT+DOWN" = {action = "move-window-down-or-to-workspace-down";};
