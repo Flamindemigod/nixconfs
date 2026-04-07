@@ -18,6 +18,8 @@
   };
   services.libinput.enable = true;
   programs.noisetorch.enable = true;
+  programs.direnv.enable = true;
+  programs.direnv.silent = true;
   environment.systemPackages = with pkgs; [
     kitty
     vim

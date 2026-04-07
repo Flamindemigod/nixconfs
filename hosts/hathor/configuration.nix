@@ -31,8 +31,6 @@ in {
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
 
-  programs.direnv.enable = true;
-  programs.direnv.silent = true;
   sops.secrets."flamin/password".neededForUsers = true;
   services.displayManager.enable = true;
   services.displayManager.gdm = {
