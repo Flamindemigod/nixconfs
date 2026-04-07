@@ -11,7 +11,12 @@
     enable = true;
     pulse.enable = true;
   };
-
+  services.gnome.gnome-keyring.enable = true;
+  services.displayManager.enable = true;
+  services.displayManager.gdm = {
+    enable = true;
+    wayland = true;
+  };
   xdg.portal = {
     enable = true;
     config.common.default = "*";
