@@ -14,5 +14,7 @@ in
       kdePackages.dolphin
       kdePackages.dolphin-plugins
       android-tools
+      heroic
+      wine64
     ]
     ++ [scrcpy]
