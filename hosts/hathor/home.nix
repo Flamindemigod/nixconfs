@@ -25,58 +25,72 @@ in {
     files = {} // vim;
     rum.desktops.niri = lib.recursiveUpdate niri {
       config = ''
-        include "dms/colors.kdl"
-        include "dms/cursor.kdl"
-        include "dms/layout.kdl"
-        include "dms/outputs.kdl"
-        include "dms/wpblur.kdl"
-        include "dms/alttab.kdl"
-        prefer-no-csd
-        input {
-          keyboard {
-            xkb {
-              layout "gb"
-              options "caps:swapescape"
-            }
-            numlock
-          }
-          touchpad {
-            tap
-            natural-scroll
-            scroll-method "two-finger"
-          }
-          focus-follows-mouse max-scroll-amount="0%"
-          warp-mouse-to-focus
-        }
-        hotkey-overlay {
-          skip-at-startup
-        }
-        window-rule {
-          match app-id=r#"^org\.keepassxcc\.KeePassXC$"#
-          block-out-from "screen-capture"
-        }
+               //include "dms/colors.kdl"
+               //include "dms/cursor.kdl"
+               //include "dms/layout.kdl"
+               //include "dms/outputs.kdl"
+               //include "dms/wpblur.kdl"
+               //include "dms/alttab.kdl"
+               prefer-no-csd
+               input {
+                 keyboard {
+                   xkb {
+                     layout "gb"
+                     options "caps:swapescape"
+                   }
+                   numlock
+                 }
+                 touchpad {
+                   tap
+                   natural-scroll
+                   scroll-method "two-finger"
+                 }
+                 focus-follows-mouse max-scroll-amount="0%"
+                 warp-mouse-to-focus
+               }
+               hotkey-overlay {
+                 skip-at-startup
+               }
+               window-rule {
+                 match app-id=r#"^org\.keepassxcc\.KeePassXC$"#
+                 block-out-from "screen-capture"
+               }
 
+               window-rule {
+                 geometry-corner-radius 12
+                 clip-to-geometry true
+               }
+               window-rule {
+                 match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+                 default-floating-position x=10 y=10 relative-to="bottom-right"
+                 open-focused false
+               }
+               window-rule {
+                 match app-id=".scrcpy-wrapped"
+                 open-floating true
+                 default-floating-position x=25 y=25 relative-to="bottom-right"
+                 min-width 200
+                 min-height 200
+                 default-window-height { proportion 0.3; }
+                 default-column-width { proportion 0.4; }
+               }
         window-rule {
-          geometry-corner-radius 12
-          clip-to-geometry true
+        	match app-id="steam_app_306130" title="Elder Scrolls Online"
+        	open-fullscreen false
+                open-maximized true
         }
         window-rule {
-          match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
-          default-floating-position x=10 y=10 relative-to="bottom-right"
-          open-focused false
-        }
-        window-rule {
-          match app-id=".scrcpy-wrapped"
+          match title="Picture-in-picture"
           open-floating true
           default-floating-position x=25 y=25 relative-to="bottom-right"
-          min-width 200
-          min-height 200
-          default-window-height { proportion 0.3; }
-          default-column-width { proportion 0.4; }
+                 min-width 200
+                 min-height 200
+          default-window-height { fixed 378; }
+          default-column-width { fixed 672; }
         }
         layout {
-          gaps 8
-        }
+                 gaps 8
+               }
       '';
     };
     rum.programs = {

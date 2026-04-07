@@ -23,6 +23,7 @@ in {
     ../../modules/tmux.nix
     ../../modules/steam.nix
     ../../modules/flatpak.nix
+    ../../modules/nvf.nix
     ./home.nix
   ];
 
@@ -30,9 +31,14 @@ in {
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
 
+  programs.direnv.enable = true;
+  programs.direnv.silent = true;
   sops.secrets."flamin/password".neededForUsers = true;
-  users.mutableUsers = false;
-
+  services.displayManager.enable = true;
+  services.displayManager.gdm = {
+    enable = true;
+    wayland = true;
+  };
   users.users.flamin = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets."flamin/password".path;

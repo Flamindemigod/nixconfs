@@ -15,13 +15,9 @@ in
         system.stateVersion = "25.11"; #Never Change This!!
       }
       hardware.common-cpu-amd
-      hardware.common-cpu-amd-pstate
-      hardware.common-cpu-amd-zenpower
       hardware.common-gpu-amd
       hardware.common-pc
       hardware.common-pc-ssd
-      hardware.common-pc-hdd
-      inputs.niri.nixosModules.niri
       inputs.dms.nixosModules.dank-material-shell
       inputs.dms-plugins.modules.default
       inputs.hjem.nixosModules.default

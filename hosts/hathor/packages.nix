@@ -9,7 +9,10 @@ in
       brave
       equibop #Modified Vesktop Client
       prismlauncher
-      discord # Alternative Client for second account
+      (discord.override {
+        # withOpenASAR = true; # can do this here too
+        withVencord = true;
+      })
       pavucontrol
       mangohud
       ffmpeg

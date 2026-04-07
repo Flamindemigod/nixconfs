@@ -14,6 +14,10 @@
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     spicetify.url = "github:Gerg-L/spicetify-nix";
     sops-nix.url = "github:Mic92/sops-nix";
+    nvf = {
+      url = "github:NotAShelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = {
     self,

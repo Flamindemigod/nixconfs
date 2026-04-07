@@ -64,7 +64,7 @@
     };
     ohMyZsh = {
       enable = true;
-      plugins = ["git"];
+      plugins = ["git" "direnv"];
       theme = "agnoster";
     };
   };
