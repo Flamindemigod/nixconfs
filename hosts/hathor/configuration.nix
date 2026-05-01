@@ -38,4 +38,18 @@ in {
     extraGroups = ["wheel" "networkmanager" "i2c"];
     packages = pkgList;
   };
+  services.transmission = {
+    enable = true;
+    package = pkgs.transmission_4;
+    user = "flamin";
+    webHome = pkgs.flood-for-transmission;
+    openRPCPort = true; #Open firewall for RPC
+    settings = {
+      incomplete-dir-enabled = false;
+      download-dir = "/home/flamin/Desktop/Transmission";
+      #Override default settings
+      rpc-bind-address = "0.0.0.0"; #Bind to own IP
+      rpc-whitelist = "127.0.0.1"; #Whitelist your remote machine (10.0.0.1 in this example)
+    };
+  };
 }
