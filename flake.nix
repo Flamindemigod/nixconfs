@@ -16,7 +16,6 @@
     sops-nix.url = "github:Mic92/sops-nix";
     nvf = {
       url = "github:NotAShelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
   outputs = {

@@ -12,6 +12,10 @@
     enable = true;
     settings = {
       vim = {
+        treesitter = {
+          enable = true;
+          grammars = pkgs.vimPlugins.nvim-treesitter.allGrammars;
+        };
         vimAlias = true;
         options = {
           shiftwidth = 2;
@@ -70,7 +74,7 @@
           };
         };
         ui.colorizer = {
-          enable = true;
+          enable = false;
           setupOpts.filetypes = {
             "*" = {
               RRGGBBAA = true;
@@ -199,15 +203,27 @@
         };
         lsp = {
           enable = true;
-          formatOnSave = true;
+          formatOnSave = false;
           inlayHints.enable = true;
           lspconfig.enable = true;
           servers.qmlls.cmd = lib.mkForce ["${pkgs.kdePackages.qtdeclarative}/bin/qmlls" "-E"];
+          servers.zig.cmd = lib.mkForce ["zls"];
         };
         languages = {
           nix = {
             enable = true;
             extraDiagnostics.enable = true;
+            format.enable = true;
+            lsp.enable = true;
+            treesitter.enable = true;
+          };
+          css.enable = true;
+          typescript = {
+            enable = true;
+            format.enable = false;
+          };
+          svelte = {
+            enable = true;
             format.enable = true;
             lsp.enable = true;
             treesitter.enable = true;
@@ -221,6 +237,7 @@
           zig = {
             enable = true;
             lsp.enable = true;
+            lsp.servers = lib.mkForce [];
             treesitter.enable = true;
           };
         };
