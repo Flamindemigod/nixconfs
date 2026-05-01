@@ -3,8 +3,8 @@
   inputs,
   ...
 }: let
-  pkgs = nixpkgs.legacyPackages.x86_64-linux;
-  spicePkgs = inputs.spicetify.legacyPackages.${pkgs.stdenv.system};
+  #pkgs = nixpkgs.legacyPackages.x86_64-linux;
+  # spicePkgs = inputs.spicetify.legacyPackages.${pkgs.stdenv.system};
   hardware = inputs.nixos-hardware.nixosModules;
 in
   nixpkgs.lib.nixosSystem {
@@ -26,17 +26,17 @@ in
         nix.settings = inputs.aagl.nixConfig;
         programs.honkers-railway-launcher.enable = true;
       }
-      {
-        imports = [inputs.spicetify.nixosModules.default];
-        programs.spicetify = {
-          enable = true;
-          enabledExtensions = with spicePkgs.extensions; [
-            adblockify
-            hidePodcasts
-            shuffle
-          ];
-        };
-      }
+      # {
+      #   imports = [inputs.spicetify.nixosModules.default];
+      #   programs.spicetify = {
+      #     enable = true;
+      #     enabledExtensions = with spicePkgs.extensions; [
+      #       adblockify
+      #       hidePodcasts
+      #       shuffle
+      #     ];
+      #   };
+      # }
       ./configuration.nix
     ];
   }
