@@ -19,5 +19,6 @@ in
       mediainfo
       thunderbird
       bitwarden-desktop
+      easyeffects
     ]
     ++ [scrcpy]
