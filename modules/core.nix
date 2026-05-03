@@ -1,8 +1,4 @@
-{
-  pkgs,
-  nixpkgs,
-  ...
-}: {
+{pkgs, ...}: {
   nix.settings.experimental-features = [
     "flakes"
     "nix-command"
@@ -17,7 +13,6 @@
     pulse.enable = true;
   };
   services.libinput.enable = true;
-  programs.noisetorch.enable = true;
   programs.direnv.enable = true;
   programs.direnv.silent = true;
   environment.systemPackages = with pkgs; [

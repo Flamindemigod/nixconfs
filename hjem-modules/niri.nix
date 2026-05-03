@@ -6,10 +6,8 @@
 }: {
   enable = true;
   package = null;
-  spawn-at-startup =
-    [
-    ]
-    ++ [(lib.mkIf config.programs.noisetorch.enable ["noisetorch" "-i"])];
+  spawn-at-startup = [
+  ];
   binds = {
     "MOD+SHIFT+SLASH" = {
       action = "show-hotkey-overlay";
