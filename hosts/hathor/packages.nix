@@ -20,5 +20,7 @@ in
       thunderbird
       bitwarden-desktop
       easyeffects
+      man-pages
+      man-pages-posix
     ]
     ++ [scrcpy]

@@ -24,6 +24,7 @@ in {
     ../../modules/steam.nix
     ../../modules/flatpak.nix
     ../../modules/nvf.nix
+    ../../modules/jellyfin.nix
     ./home.nix
   ];
 
@@ -37,6 +38,10 @@ in {
     hashedPasswordFile = config.sops.secrets."flamin/password".path;
     extraGroups = ["wheel" "networkmanager" "i2c"];
     packages = pkgList;
+  };
+documentation = {
+  enable = true;
+    dev.enable = true;
   };
   services.transmission = {
     enable = true;
