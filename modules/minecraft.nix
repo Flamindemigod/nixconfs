@@ -91,5 +91,5 @@ in {
 		name = "ftbskies2"; 
 		desc = "FTB Skies 2";
 		nf_version = "21.1.230"; 
-	};
+	}
 }

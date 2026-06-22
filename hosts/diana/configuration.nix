@@ -18,8 +18,8 @@ in {
     ../../modules/tmux.nix
     ../../modules/nvf.nix
     ./home.nix
-	../../pkgs/holo.nix
-	../../modules/mail.nix
+    ../../pkgs/holo.nix
+    ../../modules/mail.nix
   ];
 
   # Use GRUB2 as the boot loader.
@@ -30,10 +30,10 @@ in {
     efiSupport = false;
     devices = ["/dev/sda" "/dev/sdb"];
   };
-  
+
   boot.swraid.enable = true;
   boot.kernelParams = ["boot.shell_on_fail"];
-  
+
   # The mdadm RAID1s were created with 'mdadm --create ... --homehost=hetzner',
   # but the hostname for each machine may be different, and mdadm's HOMEHOST
   # setting defaults to '<system>' (using the system hostname).
@@ -59,8 +59,7 @@ in {
   users.users.flamin = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets."flamin/password".path;
-    extraGroups = ["wheel" "networkmanager" "holo" "minecraft" ];
+    extraGroups = ["wheel" "networkmanager" "holo" "minecraft"];
     packages = pkgList;
   };
-
 }

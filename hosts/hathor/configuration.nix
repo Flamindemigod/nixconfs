@@ -38,8 +38,8 @@ in {
     extraGroups = ["wheel" "networkmanager" "i2c"];
     packages = pkgList;
   };
-documentation = {
-  enable = true;
+  documentation = {
+    enable = true;
     dev.enable = true;
   };
   services.transmission = {

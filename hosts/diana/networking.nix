@@ -1,4 +1,8 @@
-{config, pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   # Network (Hetzner uses static IP assignments, and we don't use DHCP here)
   networking.useDHCP = false;
   networking.interfaces."enp0s31f6".ipv4.addresses = [
@@ -47,72 +51,72 @@
 
   #Wireguard Setup
   networking.nat = {
-	enable = true;
-	externalInterface = "eth0";
-	internalInterfaces = ["wg0"];
+    enable = true;
+    externalInterface = "eth0";
+    internalInterfaces = ["wg0"];
   };
 
-	sops.secrets."diana/wgpriv" = {
-		owner="root";
-		path="/var/lib/sops-nix/wg/private";
-	};
-	sops.secrets."diana/wgflaminphonepub" = {
-		owner="root";
-		path="/var/lib/sops-nix/wg/flamin.phone.pub";
-	};
-	sops.secrets."diana/wgflaminphonepsk" = {
-		owner="root";
-		path="/var/lib/sops-nix/wg/flamin.phone.psk";
-	};
-	sops.secrets."diana/wgflaminpcpub" = {
-		owner="root";
-		path="/var/lib/sops-nix/wg/flamin.pc.pub";
-	};
-	sops.secrets."diana/wgflaminpcpsk" = {
-		owner="root";
-		path="/var/lib/sops-nix/wg/flamin.pc.psk";
-	};
-  networking.wg-quick= {
-	interfaces = {
-		wg0 = {
-			address = ["10.100.0.1/24"];
-			listenPort = 39001;
-			privateKeyFile = config.sops.secrets."diana/wgpriv".path;
-			   # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
-      postUp = ''
-        ${pkgs.iptables}/bin/iptables -A FORWARD -i %i -o enp0s31f6 -j ACCEPT
-        ${pkgs.iptables}/bin/iptables -A FORWARD -i enp0s31f6 -o %i -j ACCEPT
-        ${pkgs.iptables}/bin/iptables -A FORWARD -i %i -d 10.100.0.0/24 -j ACCEPT
-        ${pkgs.iptables}/bin/iptables -A FORWARD -o %i -d 10.100.0.0/24 -j ACCEPT
-        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -o enp0s31f6 -j MASQUERADE
-      '';
+  sops.secrets."diana/wgpriv" = {
+    owner = "root";
+    path = "/var/lib/sops-nix/wg/private";
+  };
+  sops.secrets."diana/wgflaminphonepub" = {
+    owner = "root";
+    path = "/var/lib/sops-nix/wg/flamin.phone.pub";
+  };
+  sops.secrets."diana/wgflaminphonepsk" = {
+    owner = "root";
+    path = "/var/lib/sops-nix/wg/flamin.phone.psk";
+  };
+  sops.secrets."diana/wgflaminpcpub" = {
+    owner = "root";
+    path = "/var/lib/sops-nix/wg/flamin.pc.pub";
+  };
+  sops.secrets."diana/wgflaminpcpsk" = {
+    owner = "root";
+    path = "/var/lib/sops-nix/wg/flamin.pc.psk";
+  };
+  networking.wg-quick = {
+    interfaces = {
+      wg0 = {
+        address = ["10.100.0.1/24"];
+        listenPort = 39001;
+        privateKeyFile = config.sops.secrets."diana/wgpriv".path;
+        # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
+        postUp = ''
+          ${pkgs.iptables}/bin/iptables -A FORWARD -i %i -o enp0s31f6 -j ACCEPT
+          ${pkgs.iptables}/bin/iptables -A FORWARD -i enp0s31f6 -o %i -j ACCEPT
+          ${pkgs.iptables}/bin/iptables -A FORWARD -i %i -d 10.100.0.0/24 -j ACCEPT
+          ${pkgs.iptables}/bin/iptables -A FORWARD -o %i -d 10.100.0.0/24 -j ACCEPT
+          ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -o enp0s31f6 -j MASQUERADE
+        '';
 
-      # Undo the above
-      preDown = ''
-        ${pkgs.iptables}/bin/iptables -D FORWARD -i %i -o enp0s31f6 -j ACCEPT
-        ${pkgs.iptables}/bin/iptables -D FORWARD -i enp0s31f6 -o %i -j ACCEPT
-        ${pkgs.iptables}/bin/iptables -D FORWARD -i %i -d 10.100.0.0/24 -j ACCEPT
-        ${pkgs.iptables}/bin/iptables -D FORWARD -o %i -d 10.100.0.0/24 -j ACCEPT
-        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -o enp0s31f6 -j MASQUERADE
-      '';
+        # Undo the above
+        preDown = ''
+          ${pkgs.iptables}/bin/iptables -D FORWARD -i %i -o enp0s31f6 -j ACCEPT
+          ${pkgs.iptables}/bin/iptables -D FORWARD -i enp0s31f6 -o %i -j ACCEPT
+          ${pkgs.iptables}/bin/iptables -D FORWARD -i %i -d 10.100.0.0/24 -j ACCEPT
+          ${pkgs.iptables}/bin/iptables -D FORWARD -o %i -d 10.100.0.0/24 -j ACCEPT
+          ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -o enp0s31f6 -j MASQUERADE
+        '';
 
-			peers = [
-				{
-					publicKey =
-					config.sops.secrets."diana/wgflaminphonepub".path;
-					presharedKeyFile =
-					config.sops.secrets."diana/wgflaminphonepsk".path;
-					allowedIPs = ["10.100.0.2/32"];
-				}
-				{
-					publicKey =
-					config.sops.secrets."diana/wgflaminpcpub".path;
-					presharedKeyFile =
-					config.sops.secrets."diana/wgflaminpcpsk".path;
-					allowedIPs = ["10.100.0.3/32"];
-				}
-			];
-	};
-     };
+        peers = [
+          {
+            publicKey =
+              config.sops.secrets."diana/wgflaminphonepub".path;
+            presharedKeyFile =
+              config.sops.secrets."diana/wgflaminphonepsk".path;
+            allowedIPs = ["10.100.0.2/32"];
+          }
+          {
+            publicKey =
+              config.sops.secrets."diana/wgflaminpcpub".path;
+            presharedKeyFile =
+              config.sops.secrets."diana/wgflaminpcpsk".path;
+            allowedIPs = ["10.100.0.3/32"];
+          }
+        ];
+      };
+    };
   };
 }

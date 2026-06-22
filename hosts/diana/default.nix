@@ -17,6 +17,6 @@ in
       hardware.common-pc
       hardware.common-pc-ssd
       inputs.hjem.nixosModules.default
-    ./configuration.nix
+      ./configuration.nix
     ];
   }

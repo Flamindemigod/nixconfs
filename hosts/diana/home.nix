@@ -26,7 +26,6 @@ in {
           #TODO Add Signing Key
         };
       };
-      kitty = kitty;
       yazi = yazi;
     };
   };
