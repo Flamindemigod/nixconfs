@@ -5,6 +5,7 @@ keys:
   - &satis age1wltghmj30xjw9e5vcsncwksz8fmmnjlctt0hgjh02vhr5xsctgrquv2zlq
   - &vestalod age1tjrhtpuwlnkzddj0872xulrtzt0efr2atpf6gnl0q38q5k6gyces5vgqnz
   - &hathor age1wpp7q5vhywcj0yq33t883qsg76mk7a69y9vut4rxkzfg5zxyea2s5j4mms
+  - &diana age16g3g82efxxva7593hpfx2qrxdrtzly3p2svyt738g6kxzeqpccnskvj4ly
 creation_rules:
 - path_regex: secrets.yaml$
   key_groups:
@@ -13,3 +14,4 @@ creation_rules:
       - *satis
       - *vestalod
       - *hathor
+      - *diana
