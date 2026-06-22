@@ -17,13 +17,7 @@
              autoload -Uz add-zsh-hook
 
              function auto_ls() {
-      ${pkgs.eza}/bin/eza -1 --group-directories-first --color=always --git-ignore
-             }
-
-             function auto_nix() {
-             	if [[ -f flake.nix ]] && [[ -z "$IN_NIX_SHELL" ]]; then
-             		nix develop
-             	fi
+				${pkgs.eza}/bin/eza -1 --group-directories-first --color=always --git-ignore
              }
 
              add-zsh-hook chpwd auto_nix

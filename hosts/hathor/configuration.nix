@@ -24,7 +24,6 @@ in {
     ../../modules/steam.nix
     ../../modules/flatpak.nix
     ../../modules/nvf.nix
-    ../../modules/jellyfin.nix
     ./home.nix
   ];
 
