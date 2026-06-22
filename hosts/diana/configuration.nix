@@ -20,6 +20,7 @@ in {
     ./home.nix
     ../../pkgs/holo.nix
     ../../modules/mail.nix
+    ../../modules/minecraft.nix
   ];
 
   # Use GRUB2 as the boot loader.

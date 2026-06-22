@@ -20,7 +20,6 @@
       ${pkgs.eza}/bin/eza -1 --group-directories-first --color=always --git-ignore
                }
 
-               add-zsh-hook chpwd auto_nix
                add-zsh-hook chpwd auto_ls
 
                alias -s md="${pkgs.bat}/bin/bat --paging=never   \

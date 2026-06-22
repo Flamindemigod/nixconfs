@@ -102,15 +102,13 @@
 
         peers = [
           {
-            publicKey =
-              config.sops.secrets."diana/wgflaminphonepub".path;
+            publicKey = "dP0K1stTJet5qDd8Kg0CN0KgP+4VWQfYZE09CSH+OAA=";
             presharedKeyFile =
               config.sops.secrets."diana/wgflaminphonepsk".path;
             allowedIPs = ["10.100.0.2/32"];
           }
           {
-            publicKey =
-              config.sops.secrets."diana/wgflaminpcpub".path;
+            publicKey = "WcSUFE020OnV7x6aXXyH5kYfc8JBXFi+wUL7537kigE=";
             presharedKeyFile =
               config.sops.secrets."diana/wgflaminpcpsk".path;
             allowedIPs = ["10.100.0.3/32"];
