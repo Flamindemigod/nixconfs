@@ -21,6 +21,7 @@
       url = "gitlab:simple-nixos-mailserver/nixos-mailserver/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixarr.url = "github:nix-media-server/nixarr";
   };
   outputs = {
     self,

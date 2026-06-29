@@ -60,17 +60,9 @@
     owner = "root";
     path = "/var/lib/sops-nix/wg/private";
   };
-  sops.secrets."diana/wgflaminphonepub" = {
-    owner = "root";
-    path = "/var/lib/sops-nix/wg/flamin.phone.pub";
-  };
   sops.secrets."diana/wgflaminphonepsk" = {
     owner = "root";
     path = "/var/lib/sops-nix/wg/flamin.phone.psk";
-  };
-  sops.secrets."diana/wgflaminpcpub" = {
-    owner = "root";
-    path = "/var/lib/sops-nix/wg/flamin.pc.pub";
   };
   sops.secrets."diana/wgflaminpcpsk" = {
     owner = "root";

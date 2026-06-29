@@ -30,7 +30,7 @@
     fqdn = "server.flamindemigod.com";
     domains = ["flamindemigod.com" "pitstopz.com"];
     x509.useACMEHost = config.mailserver.fqdn;
-    loginAccounts = {
+    accounts = {
       "admin@flamindemigod.com" = {
         hashedPasswordFile = config.sops.secrets."diana/mailadmin".path;
         aliases = ["postmaster@flamindemigod.com" "admin@pitstopz.com" "postmaster@pitstopz.com"];
@@ -63,6 +63,7 @@
       domain = config.mailserver.fqdn;
       dnsProvider = "cloudflare";
       dnsPropagationCheck = true;
+      webroot = null;
     };
   };
 }
