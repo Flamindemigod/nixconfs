@@ -18,7 +18,7 @@ in
       hardware.common-pc-laptop
       inputs.niri.nixosModules.niri
       inputs.dms.nixosModules.dank-material-shell
-      inputs.dms-plugins.modules.default
+      inputs.dms-plugins.nixosModules.default
       inputs.hjem.nixosModules.default
       ./configuration.nix
     ];

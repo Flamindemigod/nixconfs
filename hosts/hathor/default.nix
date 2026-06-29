@@ -19,7 +19,7 @@ in
       hardware.common-pc
       hardware.common-pc-ssd
       inputs.dms.nixosModules.dank-material-shell
-      inputs.dms-plugins.modules.default
+      inputs.dms-plugins.nixosModules.default
       inputs.hjem.nixosModules.default
       {
         imports = [inputs.aagl.nixosModules.default];
