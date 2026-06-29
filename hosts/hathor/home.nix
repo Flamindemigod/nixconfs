@@ -18,6 +18,7 @@ in {
   imports = [
     ../../hjem-modules/core.nix
   ];
+  hardware.ckb-next.enable = true;
   hjem.users.flamin = {
     enable = true;
     directory = "/home/flamin";
@@ -78,6 +79,10 @@ in {
         	match app-id="steam_app_306130" title="Elder Scrolls Online"
         	open-fullscreen false
                 open-maximized true
+        }
+        window-rule {
+        	match app-id="steam_app_3404260"
+        	open-fullscreen true
         }
         window-rule {
           match title="Picture-in-picture"

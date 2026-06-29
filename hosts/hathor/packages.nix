@@ -7,7 +7,9 @@ in
       feh
       mpv
       brave
-      equibop #Modified Vesktop Client
+      (equibop.overrideAttrs {
+        equicord = pkgs.equicord;
+      }) #Modified Vesktop Client
       prismlauncher
       (discord.override {
         # withOpenASAR = true; # can do this here too
