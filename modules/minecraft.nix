@@ -5,11 +5,25 @@
   lib,
   ...
 }: let
+  startNF = {
+    name,
+    nf_version,
+  }:
+    lib.getExe (pkgs.writeShellApplication {
+      name = "${name}-start";
+      text = ''
+        ${pkgs.tmux}/bin/tmux -S minecraft.sock new -d \
+        ${pkgs.openjdk}/bin/java @user_jvm_args.txt    \
+        @libraries/net/neoforged/neoforge/${nf_version}/unix_args.txt nogui
+        ${pkgs.tmux}/bin/tmux -S minecraft.sock server-access -aw flamin
+      '';
+    });
+
   mkServer = {
     enable ? true,
     name,
     desc,
-    nf_version,
+    start,
   }: {
     systemd.services."minecraft-server-${name}" = {
       enable = enable;
@@ -20,15 +34,7 @@
       startLimitBurst = 5;
       serviceConfig = {
         Type = "forking";
-        ExecStart = lib.getExe (pkgs.writeShellApplication {
-          name = "${name}-start";
-          text = ''
-            ${pkgs.tmux}/bin/tmux -S minecraft.sock new -d \
-            ${pkgs.openjdk}/bin/java @user_jvm_args.txt    \
-            @libraries/net/neoforged/neoforge/${nf_version}/unix_args.txt nogui
-            ${pkgs.tmux}/bin/tmux -S minecraft.sock server-access -aw flamin
-          '';
-        });
+        ExecStart = start;
         ExecStartPost = lib.getExe (pkgs.writeShellApplication {
           name = "${name}-start-post";
           text = ''
@@ -97,8 +103,13 @@ in
       group = "minecraft";
     };
   }
-  // mkServer {
+  // mkServer (let
     name = "ftbskies2";
+  in {
+    inherit name;
     desc = "FTB Skies 2";
-    nf_version = "21.1.230";
-  }
+    start = startNF {
+      inherit name;
+      nf_version = "21.1.230";
+    };
+  })
