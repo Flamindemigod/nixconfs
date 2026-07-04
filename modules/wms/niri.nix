@@ -13,9 +13,8 @@
   };
   services.gnome.gnome-keyring.enable = true;
   services.displayManager.enable = true;
-  services.displayManager.gdm = {
-    enable = true;
-  };
+  services.displayManager.gdm.enable = true;
+  services.displayManager.defaultSession = "niri";
   xdg.portal = {
     enable = true;
     config.common.default = "*";

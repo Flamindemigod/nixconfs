@@ -20,7 +20,7 @@ in
       ffmpeg
       mediainfo
       thunderbird
-      bitwarden-desktop
+  #bitwarden-desktop
       easyeffects
       man-pages
       man-pages-posix
