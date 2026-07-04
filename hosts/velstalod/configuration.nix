@@ -46,4 +46,5 @@ in {
     hashedPasswordFile = config.sops.secrets."flamin/password".path;
     extraGroups = ["wheel"];
   };
+  services.displayManager.defaultSession = lib.mkForce "";
 }
