@@ -1,10 +1,10 @@
 {inputs, ...}: {
-  imports = [ inputs.nixarr.nixosModules.default ];
+  imports = [inputs.nixarr.nixosModules.default];
   nixarr = {
     enable = true;
     mediaDir = "/srv/nixarr/media";
     stateDir = "/srv/nixarr/.state";
-    
+
     jellyfin = {
       enable = true;
       expose.https = {
@@ -39,5 +39,4 @@
     #media request and discovery manager for Jellyfin
     seerr.enable = true;
   };
-
 }
