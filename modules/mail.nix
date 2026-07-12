@@ -23,9 +23,10 @@
     owner = "root";
     path = "/var/lib/sops-nix/mail/virendra";
   };
+  networking.firewall.allowedTCPPorts=[993 143 25 465 587 995 110];
   mailserver = {
     enable = true;
-    stateVersion = 3;
+    stateVersion = 5;
     localDnsResolver = false;
     fqdn = "server.flamindemigod.com";
     domains = ["flamindemigod.com" "pitstopz.com"];
@@ -56,14 +57,12 @@
     # down nginx and opens port 80.
     dmarcReporting.enable = true;
   };
+  services.nginx = {
+    enable = true;
+    virtualHosts.${config.mailserver.fqdn}.enableACME = true;
+  };
   security.acme = {
     defaults.email = "postmaster@flamindemigod.com";
     acceptTerms = true;
-    certs.${config.mailserver.fqdn} = {
-      domain = config.mailserver.fqdn;
-      dnsProvider = "cloudflare";
-      dnsPropagationCheck = true;
-      webroot = null;
-    };
   };
 }
