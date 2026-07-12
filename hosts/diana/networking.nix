@@ -52,7 +52,7 @@
   #Wireguard Setup
   networking.nat = {
     enable = true;
-    externalInterface = "eth0";
+    externalInterface = "enp0s31f6 ";
     internalInterfaces = ["wg0"];
   };
 
