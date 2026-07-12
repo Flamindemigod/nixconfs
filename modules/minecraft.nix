@@ -19,6 +19,18 @@
       '';
     });
 
+  #https://github.com/HellBz/Forge-Server-Starter
+  startFSS = {name}:
+    lib.getExe (pkgs.writeShellApplication {
+      name = "${name}-start";
+      text = ''
+        ${pkgs.tmux}/bin/tmux -S minecraft.sock new -d \
+        ${pkgs.openjdk}/bin/java @user_jvm_args.txt    \
+        -jar minecraft_server.jar nogui
+        ${pkgs.tmux}/bin/tmux -S minecraft.sock server-access -aw flamin
+      '';
+    });
+
   mkServer = {
     enable ? true,
     name,
@@ -103,13 +115,22 @@ in
       group = "minecraft";
     };
   }
+  # // mkServer (let
+  #   name = "ftbskies2";
+  # in {
+  #   inherit name;
+  #   desc = "FTB Skies 2";
+  #   start = startNF {
+  #     inherit name;
+  #     nf_version = "21.1.230";
+  #   };
+  # })
   // mkServer (let
-    name = "ftbskies2";
+    name = "tfg-modern";
   in {
     inherit name;
-    desc = "FTB Skies 2";
-    start = startNF {
+    desc = "TerraFirmaGreg-Modern for 1.20.1";
+    start = startFSS {
       inherit name;
-      nf_version = "21.1.230";
     };
   })
