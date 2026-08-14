@@ -10,6 +10,7 @@
       compression = 9;
       whitespace = "error";
       preloadindex = true;
+      autocrlf = false;
     };
     commit = {
       verbose = true;

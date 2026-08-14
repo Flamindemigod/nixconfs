@@ -24,5 +24,6 @@ in
       easyeffects
       man-pages
       man-pages-posix
+      chatterino7
     ]
     ++ [scrcpy]

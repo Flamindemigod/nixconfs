@@ -188,9 +188,9 @@
           };
         };
         autocomplete = {
-          #blink-cmp = {
-          #  enable = true;
-          #};
+          blink-cmp = {
+           enable = true;
+          };
         };
         binds.whichKey = {
           enable = true;
