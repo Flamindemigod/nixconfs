@@ -19,6 +19,7 @@ in {
     ../../modules/nvf.nix
     ./home.nix
     ../../pkgs/holo.nix
+    ../../pkgs/meowderator.nix
     ../../modules/mail.nix
     ../../modules/minecraft.nix
     ../../modules/nixarr.nix
@@ -37,7 +38,7 @@ in {
   users.users.flamin = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets."flamin/password".path;
-    extraGroups = ["wheel" "networkmanager" "holo" "minecraft" "nixarr"];
+    extraGroups = ["wheel" "networkmanager" "holo" "meowderator" "minecraft" "nixarr"];
     packages = pkgList;
   };
   documentation = {
