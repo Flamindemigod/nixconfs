@@ -14,7 +14,7 @@ in
         networking.hostName = "hathor";
         system.stateVersion = "25.11"; #Never Change This!!
       }
-      hardware.common-cpu-amd
+      hardware.common-cpu-intel
       hardware.common-gpu-amd
       hardware.common-pc
       hardware.common-pc-ssd
