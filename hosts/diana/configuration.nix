@@ -19,6 +19,7 @@ in {
     ../../modules/nvf.nix
     ./home.nix
     ../../pkgs/holo.nix
+    ../../pkgs/meowderator.nix
     ../../modules/mail.nix
     ../../modules/minecraft.nix
     ../../modules/nixarr.nix

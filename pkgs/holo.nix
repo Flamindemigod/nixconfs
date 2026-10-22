@@ -8,7 +8,7 @@
 
   edge_tts = pip.buildPythonPackage rec {
     pname = "edge-tts";
-    version = "7.2.7";
+    version = "7.3.1";
     doCheck = true;
     pyproject = true;
     build-system = [pip.setuptools];
@@ -24,7 +24,7 @@
       owner = "rany2";
       repo = pname;
       rev = version;
-      sha256 = "sha256-KlQJ9U5RgifpqVKw5BrPwBFJYZHKibMUlyb3aX+4qf8=";
+      sha256 = "sha256-1Ji1IqOC3iB36N00Ud6LRXyAwRbUrm5iFd1MyCxkbVc=";
     };
   };
 
