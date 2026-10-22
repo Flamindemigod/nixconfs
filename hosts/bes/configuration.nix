@@ -51,4 +51,18 @@ in {
      rocmPackages.clr.icd
    ];
  };
+  fileSystems."/run/storage" = {
+    fsType = "fuse.mergerfs";
+    device = "/mnt/*";
+    options = [
+      "defaults"
+      "minfreespace=250g"
+      "category.create=mfs"
+      "allow_other"
+    ];
+    depends = [
+      "/mnt/Atlas"
+      "/mnt/LAtlas"
+    ];
+  };
 }

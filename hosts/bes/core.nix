@@ -25,6 +25,7 @@
     zip
     unzip
     p7zip
+    mergerfs
   ];
 
   #nixpkgs.config.allowUnfree = true;
