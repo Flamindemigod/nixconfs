@@ -3,7 +3,7 @@
   inputs = {
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    niri.url = "github:sodiboo/niri-flake";
+    niri.url = "github:epireyn/niri-flake";
     dms.url = "github:AvengeMedia/DankMaterialShell/stable";
     dms-plugins.url = "github:AvengeMedia/dms-plugin-registry";
     hjem-rum = {
