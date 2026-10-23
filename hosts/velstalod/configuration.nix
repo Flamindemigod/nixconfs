@@ -46,7 +46,6 @@ in {
     hashedPasswordFile = config.sops.secrets."flamin/password".path;
     extraGroups = ["wheel"];
   };
-  services.displayManager.defaultSession = lib.mkForce "";
   swapDevices = [{
     device = "/var/lib/swapfile";
     size = 16*1024; # 16 GiB
