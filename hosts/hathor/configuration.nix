@@ -42,10 +42,10 @@ in {
     enable = true;
     dev.enable = true;
   };
-   hardware.graphics = {
-   enable = true;
-   extraPackages = with pkgs; [
-     rocmPackages.clr.icd
-   ];
- };
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+    ];
+  };
 }

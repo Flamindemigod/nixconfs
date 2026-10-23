@@ -126,11 +126,12 @@ in
   #   };
   # })
   // mkServer (let
-    name = "tfg-modern";
+    name = "atmons";
   in {
     inherit name;
-    desc = "TerraFirmaGreg-Modern for 1.20.1";
-    start = startFSS {
+    desc = "All The Mons";
+    start = startNF {
       inherit name;
+      nf_version = "21.1.249";
     };
   })

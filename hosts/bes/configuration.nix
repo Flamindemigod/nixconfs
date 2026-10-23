@@ -23,6 +23,7 @@ in {
     ../../modules/mail.nix
     ../../modules/minecraft.nix
     ../../modules/nixarr.nix
+    ../../modules/dns.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -45,12 +46,12 @@ in {
     enable = true;
     dev.enable = true;
   };
-   hardware.graphics = {
-   enable = true;
-   extraPackages = with pkgs; [
-     rocmPackages.clr.icd
-   ];
- };
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+    ];
+  };
   fileSystems."/run/storage" = {
     fsType = "fuse.mergerfs";
     device = "/mnt/*";

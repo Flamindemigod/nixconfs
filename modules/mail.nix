@@ -23,7 +23,7 @@
     owner = "root";
     path = "/var/lib/sops-nix/mail/virendra";
   };
-  networking.firewall.allowedTCPPorts=[993 143 25 465 587 995 110];
+  networking.firewall.allowedTCPPorts = [993 143 25 465 587 995 110];
   mailserver = {
     enable = true;
     stateVersion = 5;

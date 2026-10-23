@@ -189,7 +189,7 @@
         };
         autocomplete = {
           blink-cmp = {
-           enable = true;
+            enable = true;
           };
         };
         binds.whichKey = {

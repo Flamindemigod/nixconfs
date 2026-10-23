@@ -1,9 +1,12 @@
 {inputs, ...}: {
   imports = [inputs.nixarr.nixosModules.default];
+  services.flaresolverr = {
+    enable = true;
+  };
   nixarr = {
     enable = true;
-    mediaDir = "/srv/nixarr/media";
-    stateDir = "/srv/nixarr/.state";
+    mediaDir = "/run/storage/nixarr/media";
+    stateDir = "/run/storage/nixarr/.state";
 
     jellyfin = {
       enable = true;
