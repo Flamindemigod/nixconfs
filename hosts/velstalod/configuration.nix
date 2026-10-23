@@ -47,4 +47,12 @@ in {
     extraGroups = ["wheel"];
   };
   services.displayManager.defaultSession = lib.mkForce "";
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size = 16*1024; # 16 GiB
+  }];
+  boot.zswap = {
+    enable = true;
+    maxPoolPercent = 50;
+  };
 }
