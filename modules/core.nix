@@ -54,4 +54,12 @@
     randomizedDelaySec = "14m";
     options = "--delete-older-than 10d";
   };
+  nixpkgs.overlays = [(_final: prev: let
+    hook = builtins.readFile (prev.path + "/pkgs/development/interpreters/python/hooks/sphinx-hook.sh");
+  in
+    prev.lib.optionalAttrs (prev.lib.hasInfix ''eval "__sphinxBuilders=($sphinxBuilders)"'' hook) {
+      khal = prev.khal.overrideAttrs (old: {
+        sphinxBuilders = toString old.sphinxBuilders;
+      });
+    })];
 }

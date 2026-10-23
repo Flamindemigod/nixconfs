@@ -46,10 +46,12 @@ in {
     hashedPasswordFile = config.sops.secrets."flamin/password".path;
     extraGroups = ["wheel"];
   };
-  swapDevices = [{
-    device = "/var/lib/swapfile";
-    size = 16*1024; # 16 GiB
-  }];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024; # 16 GiB
+    }
+  ];
   boot.zswap = {
     enable = true;
     maxPoolPercent = 50;
